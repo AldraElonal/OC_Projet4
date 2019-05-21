@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Angelface';
+    src : url('font/Angelface.otf');
+
+}
+
+@font-face {
+    font-family: 'Cursif';
+    src : url('font/Cursif.ttf');
+
+}
+
+
+body
+{
+    background-image: url("img/bookBackground.jpg");
+    font-family : 'Cursif', sans-serif;
+}
+
+
+header
+{
+    padding : 10px 0;
+    margin-bottom : 5px;
+}
+
+header,footer
+{
+    background : #e9e9e9;
+    padding : 10px 0;
+    opacity : 0.8;
+}
+
+nav
+{
+    opacity : 0.8;
+    background-color: #e0d193;
+}
+
+article
+{
+
+    background-color: #caf2f7;
+    opacity: 0.8;
+}
+
+footer
+{
+    margin-top : 5px;
+}
+
+
+h1,h2
+{
+    font-family: "Angelface", sans-serif ;
+    font-size: 3em;
+}
