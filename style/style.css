@@ -17,7 +17,10 @@ body
     font-family : 'Cursif', sans-serif;
 }
 
-
+div
+{
+    padding : 5px;
+}
 header
 {
     padding : 10px 0;
@@ -50,7 +53,15 @@ article
     background-color: aquamarine;
     opacity: 0.8;
 }
+.ajoutCommentaire
+{
+    background-color: #008f8f;
+    opacity: 0.8;
+    margin: 10px 0;
+    padding: 5px;
 
+
+}
 footer
 {
     margin-top : 5px;
