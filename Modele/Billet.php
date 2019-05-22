@@ -12,7 +12,9 @@ class Billet extends Modele {
     }
 
     public function getBillet($idBillet){
-        $billet = $this->executerRequete("Select * FROM articles WHERE Id = ?",$idBillet);
+        $billet = $this->executerRequete("Select * FROM articles WHERE Id = ?",array($idBillet));
+        $billet = $billet->fetchAll();
+        $billet = $billet[0];
             return $billet;
     }
-}fdfsdf
+}

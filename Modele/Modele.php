@@ -17,8 +17,8 @@ abstract class Modele{
             return $requete;
         }
         else {
-            $this->bdd->prepare($sql);
-            $requete = $this->bdd->exec($params);
+            $requete = $this->bdd->prepare($sql);
+            $requete->execute($params);
             return $requete;
         }
     }

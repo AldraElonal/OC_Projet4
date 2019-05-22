@@ -24,8 +24,7 @@ class Routeur
                 if ($_GET['action'] == 'billet') {
                     if (isset($_GET['id']) AND is_numeric($_GET['id']) AND $_GET['id'] > 0) {
 
-                        echo 'demande affichage billet';
-                        // $this->ctrlBillet->billet($_GET['id']);
+                        $this->ctrlBillet->billet($_GET['id']);
                     } else {
                         $this->ctrlAccueil->accueil();
                     }
