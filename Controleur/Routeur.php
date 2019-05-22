@@ -2,6 +2,8 @@
 
 namespace Front;
 
+use mysql_xdevapi\Exception;
+
 include "Controleur/ControleurAccueil.php";
 include "Controleur/ControleurBillet.php";
 
@@ -28,6 +30,9 @@ class Routeur
                     } else {
                         $this->ctrlAccueil->accueil();
                     }
+                }else if($_GET['action'] == 'commenter'){
+
+                    $this->ctrlBillet->addComment($_GET['id'],$_POST['pseudo'],$_POST['content']);
                 }
             } else {// pas d'action définie, on affiche la page d'acceuil
 
