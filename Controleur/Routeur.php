@@ -19,14 +19,14 @@ class Routeur
         $this->ctrlBillet = new ControleurBillet();
     }
 
-    public function routerRequete()
+    public function directRequest()
     {
         try {
             if (isset($_GET['action'])) {// on détermine l'action à effectuer
                 if ($_GET['action'] == 'billet') {
                     if (isset($_GET['id']) AND is_numeric($_GET['id']) AND $_GET['id'] > 0) {
 
-                        $this->ctrlBillet->billet($_GET['id']);
+                        $this->ctrlBillet->post($_GET['id']);
                     } else {
                         $this->ctrlAccueil->accueil();
                     }

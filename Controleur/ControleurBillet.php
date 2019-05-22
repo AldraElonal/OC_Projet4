@@ -7,25 +7,25 @@ include "Modele/Commentaire.php";
 class ControleurBillet
 {
 
-    private $billet;
-    private $commentaire;
+    private $post;
+    private $comment;
 
     public function __construct()
     {
-        $this->billet = new Billet();
-        $this->commentaire =  new Commentaire();
+        $this->post = new Billet();
+        $this->comment =  new Commentaire();
     }
 
-    public function billet($idBillet)
+    public function post($idPost)
     {
-        $billet = $this->billet->getBillet($idBillet);
-        $commentaires = $this->commentaire->getCommentaires($idBillet);
-        $vue = new Vue();
-        $vue->genererVueBillet($billet,$commentaires);
+        $post = $this->post->getPost($idPost);
+        $comments = $this->comment->getComments($idPost);
+        $display = new Vue();
+        $display->createDisplayBillet($post,$comments);
     }
 
-    public function addComment($idBillet,$pseudo,$content){
-        $this->commentaire->addComment($idBillet,$pseudo,$content);
-        $this->billet($idBillet);
+    public function addComment($idPost,$pseudo,$content){
+        $this->comment->addComment($idPost,$pseudo,$content);
+        $this->post($idPost);
     }
 }

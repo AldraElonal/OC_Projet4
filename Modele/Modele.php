@@ -11,15 +11,15 @@ abstract class Modele{
 
     }
 
-    protected function executerRequete($sql,$params = null){
+    protected function executeRequest($sql,$params = null){
         if($params == null){
-            $requete = $this->bdd->query($sql);
-            return $requete;
+            $req = $this->bdd->query($sql);
+            return $req;
         }
         else {
-            $requete = $this->bdd->prepare($sql);
-            $requete->execute($params);
-            return $requete;
+            $req = $this->bdd->prepare($sql);
+            $req->execute($params);
+            return $req;
         }
     }
 

@@ -6,18 +6,18 @@ include "Modele/Billet.php";
 class ControleurAccueil
 {
 
-    private $billet;
+    private $post;
 
     public function __construct()
     {
-        $this->billet = new Billet();
+        $this->post = new Billet();
     }
 
     public function accueil()
     {
-        $billets = $this->billet->getBillets();
-        $vue = new Vue();
-        $vue->genererVueAcceuil($billets);
+        $posts = $this->post->getPosts();
+        $display = new Vue();
+        $display->createDisplayAcceuil($posts);
     }
 
 }

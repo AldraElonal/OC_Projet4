@@ -16,7 +16,7 @@ namespace  Front;
 </header>
 <div class = "row ">
     <div class = "col-md-7 offset-md-2">
-<?php echo $contenu ?>
+<?php echo $content ?>
     </div>
     <nav class = "col-md-2  rounded">
         Menu de navigation

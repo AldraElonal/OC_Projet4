@@ -4,7 +4,7 @@ namespace  Front;
 
 class Vue{
 
-    public function genererVueAcceuil($billets){
+    public function createDisplayAcceuil($posts){
         require "VueAcceuil.php";
         ob_start();
 
@@ -13,7 +13,7 @@ class Vue{
 
     }
 
-    public function genererVueBillet($billet,$commentaires){
+    public function createDisplayBillet($post,$comments){
         require "VueBillet.php";
         ob_start();
 

@@ -3,22 +3,22 @@ ob_start();
 
 ?>
     <article class ="rounded">
-        <h2><?= $billet['Titre'] ?></a></h2>
-        <p> Par  <?= $billet['Auteur'] ?> le <?= $billet['DateArticle'] ?> </p>
-        <p><?= $billet['Contenu'] ?> </p></article>
+        <h2><?= $post['Titre'] ?></a></h2>
+        <p> Par  <?= $post['Auteur'] ?> le <?= $post['DateArticle'] ?> </p>
+        <p><?= $post['Contenu'] ?> </p></article>
 
-    <div class = "rounded commentaires">
+    <div class = "rounded comments">
         <h2> Commentaires</h2>
-        <?php for($i=0;$i<count($commentaires);$i++){
+        <?php for($i=0;$i<count($comments);$i++){
             ?>
 
-            <p><?= $commentaires[$i]['Auteur'] ?> dit le <?= $commentaires[$i]['DateCommentaire'] ?> : </p>
-            <p><?= $commentaires[$i]['Contenu']?> </p>
+            <p><?= $comments[$i]['Auteur'] ?> dit le <?= $comments[$i]['DateCommentaire'] ?> : </p>
+            <p><?= $comments[$i]['Contenu']?> </p>
 
         <?php } ?>
     </div>
 
-    <form class =" col-md-7 rounded ajoutCommentaire" method="post" action="index.php?action=commenter&id=<?=$billet['Id']?>">
+    <form class =" col-md-7 rounded addComment" method="post" action="index.php?action=commenter&id=<?=$post['Id']?>">
         <div class="form-group">
             <input type="text" name="pseudo" class="form-control" placeholder="Votre pseudo">
         </div>
@@ -32,6 +32,6 @@ ob_start();
     <a href="index.php" class="btn btn-primary"> Retour à l'Acceuil</a>
 <?php
 
-$contenu = ob_get_clean();
+$content = ob_get_clean();
 
 ?>
