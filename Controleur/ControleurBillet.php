@@ -25,4 +25,8 @@ class ControleurBillet
         $vue->genererVue($contenu);
     }
 
+    public function addComment($idBillet,$pseudo,$content){
+        $this->commentaire->addComment($idBillet,$pseudo,$content);
+        $this->billet($idBillet);
+    }
 }

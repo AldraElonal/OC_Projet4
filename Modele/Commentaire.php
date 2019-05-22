@@ -10,6 +10,8 @@ class Commentaire extends Modele {
         return $commentaires;
 
     }
-
+    public function addComment($idBillet,$pseudo,$content){
+            $this->executerRequete("INSERT INTO `commentaires`( `IdArticle`, `Auteur`, `DateCommentaire`, `Contenu`) VALUES (?,?,NOW(),?)",array($idBillet,$pseudo,$content));
+    }
 }
 

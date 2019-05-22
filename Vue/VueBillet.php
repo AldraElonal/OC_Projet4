@@ -17,12 +17,12 @@ ob_start();
 
         <?php } ?>
     </div>
-    <form class =" col-md-7 rounded ajoutCommentaire">
+    <form class =" col-md-7 rounded ajoutCommentaire" method="post" action="index.php?action=commenter&id=<?=$billet['Id']?>">
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Votre pseudo">
+            <input type="text" name="pseudo" class="form-control" placeholder="Votre pseudo">
         </div>
         <div class="form-group">
-            <textarea class="form-control" placeholder="Votre commentaire" rows = "6"></textarea>
+            <textarea name="content" class="form-control" placeholder="Votre commentaire" rows = "6"></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
