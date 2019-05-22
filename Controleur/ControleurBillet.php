@@ -21,7 +21,7 @@ class ControleurBillet
         $post = $this->post->getPost($idPost);
         $comments = $this->comment->getComments($idPost);
         $display = new Vue();
-        $display->createDisplayBillet($post,$comments);
+        $display->createDisplayPost($post,$comments);
     }
 
     public function addComment($idPost,$pseudo,$content){

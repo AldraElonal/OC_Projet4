@@ -13,7 +13,7 @@ class Vue{
 
     }
 
-    public function createDisplayBillet($post,$comments){
+    public function createDisplayPost($post,$comments){
         require "VueBillet.php";
         ob_start();
 
