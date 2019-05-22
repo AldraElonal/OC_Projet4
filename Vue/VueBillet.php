@@ -17,7 +17,7 @@ ob_start();
 
         <?php } ?>
     </div>
-    <a href="index.php" class="btn btn-primary stretched-link"> Retour à l'Acceuil</a>
+    <a href="index.php" class="btn btn-primary "> Retour à l'Acceuil</a>
 <?php
 
 $contenu = ob_get_clean();

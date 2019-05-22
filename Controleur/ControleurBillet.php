@@ -20,9 +20,8 @@ class ControleurBillet
     {
         $billet = $this->billet->getBillet($idBillet);
         $commentaires = $this->commentaire->getCommentaires($idBillet);
-        require "Vue/VueBillet.php";
         $vue = new Vue();
-        $vue->genererVue($contenu);
+        $vue->genererVueBillet($billet,$commentaires);
     }
 
 }

@@ -16,9 +16,8 @@ class ControleurAccueil
     public function accueil()
     {
         $billets = $this->billet->getBillets();
-        require "Vue/VueAcceuil.php";
         $vue = new Vue();
-        $vue->genererVue($contenu);
+        $vue->genererVueAcceuil($billets);
     }
 
 }
