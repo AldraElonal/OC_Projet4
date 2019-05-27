@@ -4,19 +4,19 @@ namespace Front;
 
 use mysql_xdevapi\Exception;
 
-include "Controleur/ControleurAccueil.php";
-include "Controleur/ControleurBillet.php";
+include "Controller/ControllerHomePage.php";
+include "Controller/ControllerPost.php";
 
 class Routeur
 {
 
-    private $ctrlAccueil;
-    private $ctrlBillet;
+    private $ctrlHomePage;
+    private $ctrlPost;
 
     public function __construct()
     {
-        $this->ctrlAccueil = new ControleurAccueil();
-        $this->ctrlBillet = new ControleurBillet();
+        $this->ctrlHomePage = new ControllerHomePage();
+        $this->ctrlPost = new ControllerPost();
     }
 
     public function directRequest()
@@ -26,17 +26,17 @@ class Routeur
                 if ($_GET['action'] == 'billet') {
                     if (isset($_GET['id']) AND is_numeric($_GET['id']) AND $_GET['id'] > 0) {
 
-                        $this->ctrlBillet->post($_GET['id']);
+                        $this->ctrlPost->post($_GET['id']);
                     } else {
-                        $this->ctrlAccueil->accueil();
+                        $this->ctrlHomePage->homePage();
                     }
                 }else if($_GET['action'] == 'commenter'){
 
-                    $this->ctrlBillet->addComment($_GET['id'],$_POST['pseudo'],$_POST['content']);
+                    $this->ctrlPost->addComment($_GET['id'],$_POST['pseudo'],$_POST['content']);
                 }
             } else {// pas d'action définie, on affiche la page d'acceuil
 
-                $this->ctrlAccueil->accueil();
+                $this->ctrlHomePage->homePage();
             }
         } catch (Exception $e) {
             echo 'Erreur';

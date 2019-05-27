@@ -2,7 +2,7 @@
 namespace Front;
 use \PDO;
 
-abstract class Modele{
+abstract class Model{
     private $bdd;
 
     public function __construct()

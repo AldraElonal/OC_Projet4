@@ -1,18 +1,18 @@
 <?php
 namespace Front;
-include_once  "Modele/Modele.php";
+include_once  "Model/Model.php";
 
-class Billet extends Modele {
+class Post extends Model {
 
 
     public function getPosts(){
-        $posts = $this->executeRequest("SELECT * FROM articles");
+        $posts = $this->executeRequest("SELECT * FROM Post");
         $posts = $posts->fetchAll();
         return $posts;
     }
 
     public function getPost($idPost){
-        $post = $this->executeRequest("Select * FROM articles WHERE Id = ?",array($idPost));
+        $post = $this->executeRequest("Select * FROM Post WHERE Id = ?",array($idPost));
         $post = $post->fetchAll();
         $post = $post[0];
             return $post;

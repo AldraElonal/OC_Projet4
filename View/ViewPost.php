@@ -3,17 +3,17 @@ ob_start();
 
 ?>
     <article class ="rounded">
-        <h2><?= $post['Titre'] ?></a></h2>
-        <p> Par  <?= $post['Auteur'] ?> le <?= $post['DateArticle'] ?> </p>
-        <p><?= $post['Contenu'] ?> </p></article>
+        <h2><?= $post['Title'] ?></a></h2>
+        <p> Lle <?= $post['Created_at'] ?> </p>
+        <p><?= $post['Content'] ?> </p></article>
 
     <div class = "rounded comments">
         <h2> Commentaires</h2>
         <?php for($i=0;$i<count($comments);$i++){
             ?>
 
-            <p><?= $comments[$i]['Auteur'] ?> dit le <?= $comments[$i]['DateCommentaire'] ?> : </p>
-            <p><?= $comments[$i]['Contenu']?> </p>
+            <p><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['Created_at'] ?> : </p>
+            <p><?= $comments[$i]['Content']?> </p>
 
         <?php } ?>
     </div>

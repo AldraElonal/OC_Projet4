@@ -1,7 +1,7 @@
 <?php
 namespace  Front;
 
-include "Controleur/Routeur.php";
+include "Controller/Routeur.php";
 
 $routeur = new Routeur();
 $routeur->directRequest();

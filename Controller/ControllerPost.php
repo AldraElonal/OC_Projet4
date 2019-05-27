@@ -1,10 +1,9 @@
 <?php
 namespace  Front;
-//include "Vue/Vue.php";
-//include "Modele/Billet.php";
-include "Modele/Commentaire.php";
-
-class ControleurBillet
+//include "View/View.php";
+//include "Model/Post.php
+include "Model/Comments.php";
+class ControllerPost
 {
 
     private $post;
@@ -12,16 +11,16 @@ class ControleurBillet
 
     public function __construct()
     {
-        $this->post = new Billet();
-        $this->comment =  new Commentaire();
+        $this->post = new Post();
+        $this->comment =  new Comments();
     }
 
     public function post($idPost)
     {
         $post = $this->post->getPost($idPost);
         $comments = $this->comment->getComments($idPost);
-        $display = new Vue();
-        $display->createDisplayPost($post,$comments);
+        $display = new View();
+        $display->createViewPost($post,$comments);
     }
 
     public function addComment($idPost,$pseudo,$content){

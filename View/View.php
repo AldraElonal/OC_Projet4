@@ -2,10 +2,10 @@
 
 namespace  Front;
 
-class Vue{
+class View{
 
-    public function createDisplayAcceuil($posts){
-        require "VueAcceuil.php";
+    public function createViewHomePAge($posts){
+        require "ViewHomePage.php";
         ob_start();
 
         require "TemplatePage.php";
@@ -13,10 +13,9 @@ class Vue{
 
     }
 
-    public function createDisplayPost($post,$comments){
-        require "VueBillet.php";
+    public function createViewPost($post,$comments){
+        require "ViewPost.php";
         ob_start();
-
         require "TemplatePage.php";
         ob_end_flush();
     }
