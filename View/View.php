@@ -1,7 +1,6 @@
 <?php
 
-namespace  Front;
-
+namespace  App\Front;
 class View{
 
     public function createViewHomePAge($posts){

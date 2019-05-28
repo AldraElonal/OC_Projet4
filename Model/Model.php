@@ -1,5 +1,5 @@
 <?php
-namespace Front;
+namespace App\Front;
 use \PDO;
 
 abstract class Model{

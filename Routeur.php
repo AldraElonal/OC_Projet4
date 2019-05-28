@@ -1,6 +1,6 @@
 <?php
 
-namespace Front;
+namespace App\Front;
 
 use mysql_xdevapi\Exception;
 

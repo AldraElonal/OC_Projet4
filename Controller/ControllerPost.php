@@ -1,5 +1,5 @@
 <?php
-namespace  Front;
+namespace  App\Front;
 //include "View/View.php";
 //include "Model/Post.php
 include "Model/Comments.php";

@@ -1,6 +1,7 @@
 <?php
-namespace Front;
-include_once  "Model/Model.php";
+namespace App\Front;
+use App;
+Autoloader::register();
 
 class Post extends Model {
 

@@ -1,5 +1,5 @@
 <?php
-namespace Front;
+namespace App\Front;
 include_once  "Model/Model.php";
 
 class Comments extends Model {
