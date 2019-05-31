@@ -1,7 +1,8 @@
 <?php
 namespace  App\Front;
+use App;
 require 'Autoloader.php';
-Autoloader::register();
+App\Autoloader::register();
 
 $routeur = new Routeur();
 $routeur->directRequest();

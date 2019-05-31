@@ -22,22 +22,53 @@ class Routeur
     public function directRequest()
     {
         try {
+
             if (isset($_GET['action'])) {// on détermine l'action à effectuer
-                if ($_GET['action'] == 'billet') {
-                    if (isset($_GET['id']) AND is_numeric($_GET['id']) AND $_GET['id'] > 0) {
 
-                        $this->ctrlPost->post($_GET['id']);
-                    } else {
+                $action =  htmlspecialchars($_GET['action']);
+
+                if ($action == 'billet') {
+
+
+                    if (isset($_GET['id'])){
+                        $id = htmlspecialchars($_GET['id']);
+
+
+                        if(is_numeric($id) AND $this->ctrlPost->postExist($id)) {
+
+                            $this->ctrlPost->post($id);
+                        }
+
+                    } else { // id invalide
                         $this->ctrlHomePage->homePage();
-                    }
-                }else if($_GET['action'] == 'commenter'){
 
-                    $this->ctrlPost->addComment($_GET['id'],$_POST['pseudo'],$_POST['content']);
+                    }
+
+                }else if($action == 'commenter') {
+
+                    if (isset($_GET['id']) AND isset($_POST['pseudo']) AND isset($_POST['content'])) {
+
+                        $id = htmlspecialchars($_GET['id']);
+                        $pseudo = htmlspecialchars($_POST['pseudo']);
+                        $content = htmlspecialchars($_POST['content']);
+
+                        if (is_numeric($id) AND $id > 0 AND $pseudo!= null AND $content != null) {
+                            $this->ctrlPost->addComment($id, $pseudo, $content);
+
+                        }elseif(is_numeric($id) AND $this->ctrlPost->postExist($id)){ // données formulaire invalide
+                            $this->ctrlPost->post($id);
+
+                        }else{ // id invalide
+                            $this->ctrlHomePage->homePage();
+                        }
+                    }
                 }
             } else {// pas d'action définie, on affiche la page d'acceuil
 
                 $this->ctrlHomePage->homePage();
             }
+
+
         } catch (Exception $e) {
             echo 'Erreur';
         }

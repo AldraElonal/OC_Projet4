@@ -1,8 +1,8 @@
 <?php
 namespace App\Front;
-include_once  "Model/Model.php";
+use App;
 
-class Comments extends Model {
+class Comments extends App\Model {
 
     public function getComments($idPost){
         $comments = $this->executeRequest("SELECT * FROM comment WHERE Id_Post = ?",array($idPost));

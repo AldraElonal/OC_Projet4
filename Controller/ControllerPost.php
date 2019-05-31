@@ -27,4 +27,9 @@ class ControllerPost
         $this->comment->addComment($idPost,$pseudo,$content);
         $this->post($idPost);
     }
+
+    public function postExist($idPost){
+        return $this->post->idPostExist($idPost);
+
+    }
 }

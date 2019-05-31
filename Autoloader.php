@@ -1,5 +1,5 @@
 <?php
-namespace  App\Front;
+namespace  App;
 class Autoloader
 {
 
@@ -13,27 +13,25 @@ class Autoloader
     {
 
 
-if(preg_match('/' . __NAMESPACE__. '/',$class)==0){
+        $className = preg_split('#\\\#',$class);
+        $className = end($className);
 
-    $class = str_replace(__NAMESPACE__,'',$class);
-    $class = str_replace("\\",'',$class);
-}
-        if(stripos($class,'Controller')===0)
+        if(stripos($className,'Controller')===0)
         {
 
-            include 'Controller/' . $class . '.php';
+            include 'Controller/' . $className . '.php';
         }
-        elseif (stripos($class,'View')===0)
+        elseif (stripos($className,'View')===0)
         {
-            include 'View/' . $class . '.php';
+            include 'View/' . $className . '.php';
         }
         else
         {
-            if(file_exists($class . '.php')) {
-                include $class . '.php';
+            if(file_exists($className . '.php')) {
+                include $className . '.php';
             }
-            elseif(file_exists('Model/' . $class . '.php')){
-                include 'Model/' . $class . '.php';
+            elseif(file_exists('Model/' . $className . '.php')){
+                include 'Model/' . $className . '.php';
             }
         }
     }

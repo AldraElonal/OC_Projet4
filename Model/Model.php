@@ -1,5 +1,5 @@
 <?php
-namespace App\Front;
+namespace App;
 use \PDO;
 
 abstract class Model{
@@ -13,6 +13,7 @@ abstract class Model{
 
     protected function executeRequest($sql,$params = null){
         if($params == null){
+
             $req = $this->bdd->query($sql);
             return $req;
         }
