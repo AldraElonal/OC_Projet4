@@ -4,6 +4,7 @@ include_once "Autoloader.php";
 use App\Back;
 \App\Autoloader::register();
 
+
 const ADMIN = 50;
 
 $pseudo = htmlspecialchars($_POST['pseudo']);

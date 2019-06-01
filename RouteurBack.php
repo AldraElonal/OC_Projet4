@@ -7,12 +7,14 @@ class RouteurBack
 {
 
     private $ctrlConnect;
+    private $ctrlAdmin;
 
     const ADMIN = 50;
 
     public function __construct()
     {
         $this->ctrlConnect = new ControllerConnect;
+        $this->ctrlAdmin = new ControllerAdminPage();
     }
 
     public function directRequest(){
@@ -20,7 +22,11 @@ class RouteurBack
         try{
             if(isset($_SESSION['role'])){
                 if($_SESSION['role'] == self::ADMIN){
-                    echo 'connecté en tant que ADMIN';
+                    if(isset($_GET['action'])){
+                        $action =  htmlspecialchars($_GET['action']);
+                    }else {
+                        $this->ctrlAdmin->adminPage();
+                    }
                 }else {
                     $this->ctrlConnect->connect();
                 }
@@ -32,4 +38,4 @@ class RouteurBack
 
         }
     }
-},
+}

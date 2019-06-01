@@ -12,7 +12,7 @@ class ControllerPost
     public function __construct()
     {
         $this->post = new Post();
-        $this->comment =  new Comments();
+        $this->comment =  new CommentsFront();
     }
 
     public function post($idPost)

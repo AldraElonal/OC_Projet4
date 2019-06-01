@@ -2,7 +2,7 @@
 namespace App\Front;
 use App;
 
-class Comments extends App\Model {
+class CommentsFront extends App\Model {
 
     public function getComments($idPost){
         $comments = $this->executeRequest("SELECT * FROM comment WHERE Id_Post = ?",array($idPost));

@@ -18,7 +18,7 @@ class ControllerHomePage
     {
         $posts = $this->post->getPosts();
         $display = new View();
-        $display->createViewHomePAge($posts);
+        $display->createViewHomePage($posts);
     }
 
 }
