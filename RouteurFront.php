@@ -7,7 +7,7 @@ use mysql_xdevapi\Exception;
 include "Controller/ControllerHomePage.php";
 include "Controller/ControllerPost.php";
 
-class Routeur
+class RouteurFront
 {
 
     private $ctrlHomePage;
@@ -69,7 +69,7 @@ class Routeur
             }
 
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo 'Erreur';
         }
     }

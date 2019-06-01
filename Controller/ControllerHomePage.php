@@ -1,7 +1,8 @@
 <?php
 namespace  App\Front;
-include "View/View.php";
-include "Model/Post.php";
+
+
+use App\View;
 
 class ControllerHomePage
 {

@@ -1,8 +1,8 @@
 <?php
 namespace  App\Front;
-//include "View/View.php";
-//include "Model/Post.php
-include "Model/Comments.php";
+
+use App\View;
+
 class ControllerPost
 {
 
