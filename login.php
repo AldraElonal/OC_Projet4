@@ -16,7 +16,6 @@ if($member->checklogin($pseudo,$password)){
     $_SESSION['role'] = 0;
 }
 
-var_dump($_SESSION);
 header("location: admin.php");
 exit;
 

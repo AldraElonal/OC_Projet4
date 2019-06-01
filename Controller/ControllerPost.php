@@ -32,4 +32,9 @@ class ControllerPost
         return $this->post->idPostExist($idPost);
 
     }
+
+    public function signalComment($idPost,$idComment){
+        $this->comment->signalComment($idComment);
+        $this->post($idPost);
+    }
 }

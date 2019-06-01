@@ -12,7 +12,8 @@ ob_start();
         <?php for($i=0;$i<count($comments);$i++){
             ?>
 
-            <p><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['Created_at'] ?> : </p>
+          <div class ="row"><p class =" col-md-5"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['Created_at'] ?> : </p>
+              <a href="<?="index.php?action=signaler&postid=". $post['Id'] . "&id=" . $comments[$i]['Id']?>" class="btn btn-danger offset-md-3">Signaler</a> </div>
             <p><?= $comments[$i]['Content']?> </p>
 
         <?php } ?>

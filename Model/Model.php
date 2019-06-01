@@ -18,6 +18,7 @@ abstract class Model{
             return $req;
         }
         else {
+
             $req = $this->bdd->prepare($sql);
             $req->execute($params);
             return $req;

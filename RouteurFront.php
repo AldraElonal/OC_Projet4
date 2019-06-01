@@ -30,11 +30,11 @@ class RouteurFront
                 if ($action == 'billet') {
 
 
-                    if (isset($_GET['id'])){
+                    if (isset($_GET['id'])) {
                         $id = htmlspecialchars($_GET['id']);
 
 
-                        if(is_numeric($id) AND $this->ctrlPost->postExist($id)) {
+                        if (is_numeric($id) AND $this->ctrlPost->postExist($id)) {
 
                             $this->ctrlPost->post($id);
                         }
@@ -43,8 +43,32 @@ class RouteurFront
                         $this->ctrlHomePage->homePage();
 
                     }
+                }
 
-                }else if($action == 'commenter') {
+                elseif ($action == 'signaler') {
+                    if (isset($_GET['postid'])){
+                        $postid = htmlspecialchars($_GET['postid']);
+
+
+                        if(is_numeric($postid) AND $this->ctrlPost->postExist($postid)) {
+
+                            if (isset($_GET['id'])){
+                                $id = htmlspecialchars($_GET['id']);
+                                $this->ctrlPost->signalComment($postid,$id);
+
+                            }
+                            else{
+                                $this->ctrlPost->post($postid);
+                            }
+                        }
+
+
+                    } else { // id invalide
+                        $this->ctrlHomePage->homePage();
+
+                    }
+                }
+                else if($action == 'commenter') {
 
                     if (isset($_GET['id']) AND isset($_POST['pseudo']) AND isset($_POST['content'])) {
 

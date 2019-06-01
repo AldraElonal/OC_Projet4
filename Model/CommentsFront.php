@@ -13,5 +13,8 @@ class CommentsFront extends App\Model {
     public function addComment($idBillet,$pseudo,$content){
             $this->executeRequest("INSERT INTO `comment`( `Id_Post`, `Name`, `Created_At`, `Content`) VALUES (?,?,NOW(),?)",array($idBillet,$pseudo,$content));
     }
-}
 
+    public function signalComment($idComment){
+        $this->executeRequest("UPDATE `comment` SET `Status`=0 WHERE Id=? ",array($idComment));
+    }
+}
