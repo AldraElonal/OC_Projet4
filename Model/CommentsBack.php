@@ -11,5 +11,10 @@ class CommentsBack extends App\Model {
 
     }
 
+    public function deleteComment($idComment)
+    {
+        $req = $this->executeRequest("DELETE FROM comment WHERE id= ? ",array($idComment));
+    }
+
 }
 

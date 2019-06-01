@@ -8,9 +8,8 @@ ob_start();
         ?>
         <div class=" row">
         <p class ="col-md-5"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['Created_at'] ?> : </p>
-        <form method="get" action="admin.php?action=supprimerCommentaire&id=<?=$i ?>">
-            <button type="submit" class="btn btn-danger col-md-12"> Supprimer Commentaire</button>
-        </form>
+
+            <a href="admin.php?action=supprimerCommentaire&id=<?=$comments[$i]['Id'] ?>" class="btn btn-danger offset-md-2 col-md-3"> Supprimer Commentaire</a>
         </div>
         <p><?= $comments[$i]['Content']?> </p>
 

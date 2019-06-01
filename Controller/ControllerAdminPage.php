@@ -18,4 +18,9 @@ class ControllerAdminPage {
         $display = new View();
         $display->createViewAdminPage($this->comments->getComments());
     }
+
+    public function deleteComment($idComment){
+        $this->comments->deleteComment($idComment);
+        $this->adminPage();
+    }
 }
