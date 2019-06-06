@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Back;
+
 use App;
+
 session_start();
 require 'Autoloader.php';
 App\Autoloader::register();

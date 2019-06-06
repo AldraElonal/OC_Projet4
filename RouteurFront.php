@@ -2,11 +2,6 @@
 
 namespace App\Front;
 
-use mysql_xdevapi\Exception;
-
-include "Controller/ControllerHomePage.php";
-include "Controller/ControllerPost.php";
-
 class RouteurFront
 {
 
@@ -25,64 +20,37 @@ class RouteurFront
 
             if (isset($_GET['action'])) {// on détermine l'action à effectuer
 
-                $action =  htmlspecialchars($_GET['action']);
+                $action = htmlspecialchars($_GET['action']);
 
-                if ($action == 'billet') {
+                if ($action == 'billet' AND isset($_GET['id'])) {
 
-
-                    if (isset($_GET['id'])) {
-                        $id = htmlspecialchars($_GET['id']);
-
-
-                        if (is_numeric($id) AND $this->ctrlPost->postExist($id)) {
-
-                            $this->ctrlPost->post($id);
-                        }
-
-                    } else { // id invalide
+                    $id = htmlspecialchars($_GET['id']);
+                    if (!$this->ctrlPost->post($id)) {
                         $this->ctrlHomePage->homePage();
-
                     }
-                }
 
-                elseif ($action == 'signaler') {
-                    if (isset($_GET['postid'])){
-                        $postid = htmlspecialchars($_GET['postid']);
+                } elseif ($action == 'signaler' AND isset($_GET['postid']) AND isset($_GET['id'])) {
 
-
-                        if(is_numeric($postid) AND $this->ctrlPost->postExist($postid)) {
-
-                            if (isset($_GET['id'])){
-                                $id = htmlspecialchars($_GET['id']);
-                                $this->ctrlPost->signalComment($postid,$id);
-
-                            }
-                            else{
-                                $this->ctrlPost->post($postid);
-                            }
-                        }
-
-
-                    } else { // id invalide
+                    $postid = htmlspecialchars($_GET['postid']);
+                    $id = htmlspecialchars($_GET['id']);
+                    if (!$this->ctrlPost->signalComment($postid, $id)) {
                         $this->ctrlHomePage->homePage();
-
                     }
-                }
-                else if($action == 'commenter') {
+                }elseif($action == 'signaler' AND isset($_GET['postid']) AND !isset($_GET['id'])){ // signaler sans id de commentaire
+                    $id = htmlspecialchars($_GET['postid']);
+
+                    if (!$this->ctrlPost->post($id)) {
+                        $this->ctrlHomePage->homePage();
+                    }
+
+                } elseif ($action == 'commenter') {
 
                     if (isset($_GET['id']) AND isset($_POST['pseudo']) AND isset($_POST['content'])) {
 
                         $id = htmlspecialchars($_GET['id']);
                         $pseudo = htmlspecialchars($_POST['pseudo']);
                         $content = htmlspecialchars($_POST['content']);
-
-                        if (is_numeric($id) AND $id > 0 AND $pseudo!= null AND $content != null) {
-                            $this->ctrlPost->addComment($id, $pseudo, $content);
-
-                        }elseif(is_numeric($id) AND $this->ctrlPost->postExist($id)){ // données formulaire invalide
-                            $this->ctrlPost->post($id);
-
-                        }else{ // id invalide
+                        if (!$this->ctrlPost->addComment($id, $pseudo, $content)) {
                             $this->ctrlHomePage->homePage();
                         }
                     }

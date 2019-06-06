@@ -17,38 +17,37 @@ class RouteurBack
         $this->ctrlAdmin = new ControllerAdminPage();
     }
 
-    public function directRequest(){
-        try{
+    public function directRequest()
+    {
+        try {
 
-            if(isset($_SESSION['role'])){
+            if (isset($_SESSION['role'])) {
 
-                if($_SESSION['role'] == self::ADMIN){
+                if ($_SESSION['role'] == self::ADMIN) {
 
-                    if(isset($_GET['action'])){
-                        $action =  htmlspecialchars($_GET['action']);
+                    if (isset($_GET['action'])) {
+                        $action = htmlspecialchars($_GET['action']);
 
-                        if($action == "supprimerCommentaire" AND isset($_GET['id'])) {
+                        if ($action == "supprimerCommentaire" AND isset($_GET['id'])) {
                             $id = htmlspecialchars($_GET['id']);
                             $this->ctrlAdmin->deleteComment($id);
 
-                        }else {
+                        } else {
                             $this->ctrlAdmin->adminPage();
                         }
 
-                    }else {
+                    } else {
                         $this->ctrlAdmin->adminPage();
                     }
 
-                }else {
+                } else {
                     $this->ctrlConnect->connect();
                 }
 
-            }else {
+            } else {
                 $this->ctrlConnect->connect();
             }
-        }
-
-        catch (\Exception $e){
+        } catch (\Exception $e) {
 
         }
     }

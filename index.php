@@ -1,6 +1,9 @@
 <?php
-namespace  App\Front;
+
+namespace App\Front;
+
 use App;
+
 require 'Autoloader.php';
 App\Autoloader::register();
 
