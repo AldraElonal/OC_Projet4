@@ -79,6 +79,8 @@ class Routeur
                     if (!$this->ctrlAdmin->deleteComment($id)) {
                         $this->ctrlHomePage->homePage();
                     }
+                }else if($action == "unlog") {
+                $this->ctrlConnect->disconnect();
 
                 } else { //action inconnue
                     $this->ctrlHomePage->homePage();

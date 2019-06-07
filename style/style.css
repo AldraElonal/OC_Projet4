@@ -80,7 +80,13 @@ h1,h2
 }
 
 
-.btnconnexion
+.btnconnexion, .btndisconnexion
 {
     height : 2em;
+    /*margin-left: 3px;*/
+}
+
+.btndisconnexion
+{
+    margin-left: 3px;
 }

@@ -18,7 +18,7 @@ const ADMIN = 50;
     <div class ="row">
     <h1 class = offset-md-1> Projet 4 : Blog d'écrivain</h1>
    <?php if(!isset($_SESSION['role']) OR $_SESSION['role'] < ADMIN ){ ?><a href="index.php?action=login" class = "btnconnexion btn btn-danger offset-md-7">Connexion</a>
-    <?php }else{ ?><a href="index.php?action=admin" class = "btnconnexion btn btn-danger offset-md-7">Panneau d'Administation</a>
+    <?php }else{ ?><a href="index.php?action=admin" class = "btnconnexion btn btn-danger offset-md-6">Panneau d'Administation</a>  <a href="index.php?action=unlog" class = "btndisconnexion btn btn-danger">Déconnexion</a>
     <?php }?>
     </div>
 </header>
