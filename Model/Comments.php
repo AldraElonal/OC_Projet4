@@ -3,8 +3,8 @@ namespace App;
 
 class Comments extends Model {
 
-    public function getCommentsPerStatus(){
-        $comments = $this->executeRequest("SELECT * FROM comment ORDER BY Status ASC");
+    public function getCommentsPerStatus($status){
+        $comments = $this->executeRequest("SELECT * FROM comment WHERE Status = ? ", array($status));
         return $comments->fetchAll();
 
     }
@@ -12,12 +12,12 @@ class Comments extends Model {
 
     public function deleteComment($idComment)
     {
-        $req = $this->executeRequest("DELETE FROM comment WHERE id= ? ",array($idComment));
+        $req = $this->executeRequest("UPDATE comment SET `Status`=0 WHERE id= ? ",array($idComment));
     }
 
 
     public function getCommentsPerPost($idPost){
-        $comments = $this->executeRequest("SELECT * FROM comment WHERE Id_Post = ? ORDER BY Created_At ASC",array($idPost));
+        $comments = $this->executeRequest("SELECT * FROM comment WHERE Id_Post = ? AND `Status`>0  ORDER BY Created_At ASC",array($idPost));
         return $comments->fetchAll();
 
     }
@@ -26,7 +26,11 @@ class Comments extends Model {
     }
 
     public function signalComment($idComment){
-        $this->executeRequest("UPDATE `comment` SET `Status`=0 WHERE Id=? ",array($idComment));
+        $this->executeRequest("UPDATE `comment` SET `Status`=1 WHERE Id=? ",array($idComment));
+    }
+
+    public function confirmComment($idComment){
+        $this->executeRequest("UPDATE `comment` SET `Status`=3 WHERE Id=? ",array($idComment));
     }
 
     public function existComment($idComment){

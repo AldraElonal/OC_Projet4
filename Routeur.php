@@ -79,6 +79,11 @@ class Routeur
                     if (!$this->ctrlAdmin->deleteComment($id)) {
                         $this->ctrlHomePage->homePage();
                     }
+                } else if ($action == "validerCommentaire" AND isset($_GET['id'])) {
+                    $id = htmlspecialchars($_GET['id']);
+                    if (!$this->ctrlAdmin->confirmComment($id)) {
+                        $this->ctrlHomePage->homePage();
+                    }
                 }else if($action == "unlog") {
                 $this->ctrlConnect->disconnect();
 

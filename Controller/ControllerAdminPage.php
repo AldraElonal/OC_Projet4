@@ -18,7 +18,7 @@ class ControllerAdminPage
     {
         if (isset($_SESSION['role']) AND $_SESSION['role'] == ADMIN) {
             $display = new View();
-            $display->createViewAdminPage($this->comments->getCommentsPerStatus());
+            $display->createViewAdminPage($this->comments->getCommentsPerStatus(1));
             return true;
         } else {
             return false;
@@ -30,6 +30,19 @@ class ControllerAdminPage
         if (isset($_SESSION['role']) AND $_SESSION['role'] == ADMIN) {
             if (is_numeric($idComment) AND $this->comments->existComment($idComment)) {
                 $this->comments->deleteComment($idComment);
+            }
+            $this->adminPage();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function confirmComment($idComment)
+    {
+        if (isset($_SESSION['role']) AND $_SESSION['role'] == ADMIN) {
+            if (is_numeric($idComment) AND $this->comments->existComment($idComment)) {
+                $this->comments->confirmComment($idComment);
             }
             $this->adminPage();
             return true;
