@@ -14,7 +14,7 @@ ob_start();
         <div class=" row">
         <p class ="col-md-5"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['Created_at'] ?> : </p>
 
-            <a href="admin.php?action=supprimerCommentaire&id=<?=$comments[$i]['Id'] ?>" class="btn btn-danger offset-md-2 col-md-3"> Supprimer Commentaire</a>
+            <a href="index.php?action=supprimerCommentaire&id=<?=$comments[$i]['Id'] ?>" class="btn btn-danger offset-md-2 col-md-3"> Supprimer Commentaire</a>
         </div>
         <p><?= $comments[$i]['Content']?> </p>
         </div>

@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Front;
+namespace App;
 
-use App\Comments;
-use App\View;
 
 class ControllerPost
 {

@@ -1,6 +1,8 @@
 <?php
 
 namespace  App;
+
+
 class View{
 
     public function createViewHomePage($posts){

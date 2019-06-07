@@ -1,9 +1,8 @@
 <?php
-namespace App\Front;
-use App;
-//Autoloader::register();
+namespace App;
 
-class Post extends App\Model {
+
+class Post extends Model {
 
 
     public function getPosts(){

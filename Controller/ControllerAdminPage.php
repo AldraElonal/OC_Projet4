@@ -1,11 +1,11 @@
 <?php
-namespace App\Back;
 
-use App\Comments;
-use App\Front\CommentsFront;
-use App\View;
+namespace App;
 
-class ControllerAdminPage {
+const ADMIN = 50;
+
+class ControllerAdminPage
+{
 
     private $comments;
 
@@ -16,14 +16,25 @@ class ControllerAdminPage {
 
     public function adminPage()
     {
-        $display = new View();
-        $display->createViewAdminPage($this->comments->getCommentsPerStatus());
+        if (isset($_SESSION['role']) AND $_SESSION['role'] == ADMIN) {
+            $display = new View();
+            $display->createViewAdminPage($this->comments->getCommentsPerStatus());
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public function deleteComment($idComment){
-        if(is_numeric($idComment) AND $this->comments->existComment($idComment)) {
-            $this->comments->deleteComment($idComment);
+    public function deleteComment($idComment)
+    {
+        if (isset($_SESSION['role']) AND $_SESSION['role'] == ADMIN) {
+            if (is_numeric($idComment) AND $this->comments->existComment($idComment)) {
+                $this->comments->deleteComment($idComment);
+            }
+            $this->adminPage();
+            return true;
+        } else {
+            return false;
         }
-        $this->adminPage();
     }
 }

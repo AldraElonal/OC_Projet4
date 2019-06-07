@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Back;
+namespace App;
 
-use App;
 
-class Member extends App\Model {
+class Member extends Model {
 
     public function checklogin($pseudo,$password){
         $req = $this->executeRequest("Select * FROM utilisateurs WHERE pseudo = ? AND password = ? ", array($pseudo,$password));

@@ -1,8 +1,8 @@
 <?php
 
-namespace  App\Back;
+namespace  App;
 
-use App\View;
+
 
 class ControllerConnect{
 

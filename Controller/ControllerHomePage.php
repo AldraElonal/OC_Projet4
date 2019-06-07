@@ -1,8 +1,8 @@
 <?php
-namespace  App\Front;
+namespace  App;
 
 
-use App\View;
+
 
 class ControllerHomePage
 {
