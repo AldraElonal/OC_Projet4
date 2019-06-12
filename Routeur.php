@@ -5,96 +5,72 @@ namespace App;
 class Routeur
 {
 
-    private $ctrlHomePage;
-    private $ctrlPost;
-    private $ctrlConnect;
-    private $ctrlAdmin;
-
-    public function __construct()
-    {
-        $this->ctrlHomePage = new ControllerHomePage();
-        $this->ctrlPost = new ControllerPost();
-        $this->ctrlConnect = new ControllerConnect();
-        $this->ctrlAdmin = new ControllerAdminPage();
-    }
 
     public function directRequest()
     {
         try {
 
             if (isset($_GET['action'])) {// on détermine l'action à effectuer
-
                 $action = htmlspecialchars($_GET['action']);
+var_dump($action);
+                if ($action == 'billet') {
+                    $ctrlPost = new ControllerPost();
+                    $ctrlPost->post();
 
-                if ($action == 'billet' AND isset($_GET['id'])) {
-
-                    $id = htmlspecialchars($_GET['id']);
-                    if (!$this->ctrlPost->post($id)) {
-                        $this->ctrlHomePage->homePage();
-                    }
-
-                } elseif ($action == 'signaler' AND isset($_GET['postid']) AND isset($_GET['id'])) {
-
-                    $postid = htmlspecialchars($_GET['postid']);
-                    $id = htmlspecialchars($_GET['id']);
-                    if (!$this->ctrlPost->signalComment($postid, $id)) {
-                        $this->ctrlHomePage->homePage();
-                    }
-                } elseif ($action == 'signaler' AND isset($_GET['postid']) AND !isset($_GET['id'])) { // signaler sans id de commentaire
-                    $id = htmlspecialchars($_GET['postid']);
-
-                    if (!$this->ctrlPost->post($id)) {
-                        $this->ctrlHomePage->homePage();
-                    }
+                } elseif ($action == 'signaler') {
+                    $ctrlPost = new ControllerPost();
+                    $ctrlPost->signalComment();
 
                 } elseif ($action == 'commenter') {
-                    if (isset($_GET['id']) AND isset($_POST['pseudo']) AND isset($_POST['content'])) {
-
-                        $id = htmlspecialchars($_GET['id']);
-                        $pseudo = htmlspecialchars($_POST['pseudo']);
-                        $content = htmlspecialchars($_POST['content']);
-                        if (!$this->ctrlPost->addComment($id, $pseudo, $content)) {
-                            $this->ctrlHomePage->homePage();
-                        }
-
-                    } elseif (isset($_GET['id'])) {
-                        $id = htmlspecialchars($_GET['id']);
-                        if (!$this->ctrlPost->post($id)) {
-                            $this->ctrlHomePage->homePage();
-                        }
-
-                    } else {
-                        $this->ctrlHomePage->homePage();
-                    }
+                    $ctrlPost = new ControllerPost();
+                    $ctrlPost->addComment();
 
                 } else if ($action == 'login') {
-                    $this->ctrlConnect->connect();
+                    $ctrlConnect = new ControllerConnect();
+                    $ctrlConnect->connect();
 
                 } else if ($action == 'admin') {
-                    if (!$this->ctrlAdmin->adminPage()) {
-                        $this->ctrlHomePage->homePage();
-                    }
-                } else if ($action == "supprimerCommentaire" AND isset($_GET['id'])) {
-                    $id = htmlspecialchars($_GET['id']);
-                    if (!$this->ctrlAdmin->deleteComment($id)) {
-                        $this->ctrlHomePage->homePage();
-                    }
-                } else if ($action == "validerCommentaire" AND isset($_GET['id'])) {
-                    $id = htmlspecialchars($_GET['id']);
-                    if (!$this->ctrlAdmin->confirmComment($id)) {
-                        $this->ctrlHomePage->homePage();
-                    }
-                }else if($action == "unlog") {
-                $this->ctrlConnect->disconnect();
+                    $ctrlAdmin = new ControllerAdminPage();
+                    $ctrlAdmin->adminPage();
+
+                } else if ($action == 'commentairesSupprimes') {
+                    $ctrlAdmin = new ControllerAdminPage();
+                    $ctrlAdmin->deletedComments();
+
+                } else if ($action == "supprimerCommentaire") {
+                    $ctrlAdmin = new ControllerAdminPage();
+                    $ctrlAdmin->deleteComment();
+
+                } else if ($action == "validerCommentaire") {
+                    $ctrlAdmin = new ControllerAdminPage();
+                    $ctrlAdmin->confirmComment();
+
+                } else if ($action == "gestionArticles") {
+                    $ctrlPost = new ControllerPost();
+                    $ctrlPost->postManager();
+
+//fusion ajouter & editer ? => ajouter = editer sans indiquer postid
+                } else if ($action == "AjouterArticle") {
+                    $ctrlPost = new ControllerPost();
+                    $ctrlPost->editPost();
+
+                } else if ($action == "EditerArticle") {
+                    $ctrlPost = new ControllerPost();
+                    $ctrlPost->editPost();
+
+                } else if ($action == "unlog") {
+                    $ctrlConnect = new ControllerConnect();
+                    $ctrlConnect->disconnect();
 
                 } else { //action inconnue
-                    $this->ctrlHomePage->homePage();
+                    $ctrlHomePage = new ControllerHomePage();
+                    $ctrlHomePage->homePage();
                 }
+
             } else {// pas d'action définie, on affiche la page d'acceuil
-
-                $this->ctrlHomePage->homePage();
+                $ctrlHomePage = new ControllerHomePage();
+                $ctrlHomePage->homePage();
             }
-
 
         } catch (\Exception $e) {
             echo 'Erreur';

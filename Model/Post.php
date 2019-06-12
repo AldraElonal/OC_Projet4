@@ -28,4 +28,15 @@ class Post extends Model {
             return false;
         }
     }
+
+    public function addPost($title,$content,$status){
+        $req = $this->executeRequest("INSERT INTO `post`(`Title`, `Created_at`, `Content`, `Status`) VALUES (?,NOW(),?,?)",array($title,$content,$status));
+    }
+
+    public function  editPost($id,$title,$content,$status){
+        $req = $this->executeRequest("UPDATE `post` SET `Title`=?,`Content`=?,`Status`=? WHERE Id=?",array($title,$content,$status,$id));
+
+    }
+
+
 }

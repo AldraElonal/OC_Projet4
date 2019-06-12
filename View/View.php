@@ -23,8 +23,19 @@ class View{
         require "TemplatePage.php";
     }
 
-    public function createViewAdminPage($comments){
+    public function createViewAdminPage($comments,$title){
         require "ViewAdminPage.php";
         require "TemplatePage.php";
+    }
+
+    public function createViewPostManager($posts){
+        require "ViewPostManager.php";
+        require "TemplatePage.php";
+    }
+
+    public function createViewEditPost($id=null,$title=null,$Created=null,$content=null,$status=null){
+        require "ViewPostEdit.php";
+        require "TemplatePage.php";
+
     }
 }

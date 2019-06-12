@@ -4,17 +4,20 @@ include_once "Autoloader.php";
 \App\Autoloader::register();
 
 
-const ADMIN = 50;
 
 $pseudo = htmlspecialchars($_POST['pseudo']);
 $password = htmlspecialchars(($_POST['password']));
-$member = new \App\Member();
-if($member->checklogin($pseudo,$password)){
-    $_SESSION['role'] = ADMIN;
-}else{
-    $_SESSION['role'] = 0;
+$mdlmember = new \App\Member();
+if($mdlmember->checkUser($pseudo,$password)) {
+    $member = $mdlmember->getUser($pseudo, $password);
+    $_SESSION['User'] = array(
+        "Id" => $member['Id'],
+        "pseudo" => $member['pseudo'],
+        "role" =>$member['role']);
+    header("location: index.php?action=admin");
 }
-
-header("location: index.php");
+else {
+    header("location: index.php");
+}
 exit;
 

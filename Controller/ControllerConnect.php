@@ -17,7 +17,7 @@ class ControllerConnect
     public function disconnect()
     {
 
-        $_SESSION['role'] = 0;
+        $_SESSION['User'] = 0;
         header("location: index.php");
     }
 
