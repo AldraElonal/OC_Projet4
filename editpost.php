@@ -27,6 +27,8 @@ if($title!=null AND $content !=null) {
         $mdlpost->addPost($title,$content,$status);
     }
 }
+
+
 header("location:index.php?action=gestionArticles");
 exit;
 
