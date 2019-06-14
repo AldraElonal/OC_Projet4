@@ -34,6 +34,7 @@ const ADMIN = 50;
     <footer class="container-fluid">
         <p class="col-md-3 offset-md-7"> Blog réalisé avec php,mysql et la bibliothèque css Bootstrap</p>
     </footer>
+    <?php if(isset($script)){ echo $script;} ?>
 </body>
 </html>
 

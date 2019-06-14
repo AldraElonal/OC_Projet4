@@ -34,6 +34,7 @@ class View{
     }
 
     public function createViewEditPost($id=null,$title=null,$Created=null,$content=null,$status=null){
+       require "scriptTinyMCE.php";
         require "ViewPostEdit.php";
         require "TemplatePage.php";
 

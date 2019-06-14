@@ -7,7 +7,7 @@ ob_start(); ?>
             <input type="text" name="Title" class="form-control" <?php if ($id !== null) { ?>value="<?php echo $title; } else { ?>placeholder="Titre de l'article<?php } ?>">
         </div>
         <div class="form-group">
-            <textarea name="Content" class="form-control" <?php if ($id == null) { ?>placeholder="Contenu de votre Article"<?php }?> rows="6"><?php if ($id !== null) {  echo $content; } ?></textarea>
+            <textarea name="Content" class="form-control" id="TinyMCE" <?php if ($id == null) { ?>placeholder="Contenu de votre Article"<?php }?> rows="6"><?php if ($id !== null) {  echo $content; } ?></textarea>
         </div>
         <div class="form-group row">
             <input type="checkbox" name="Status" id="Status" class="form-control" <?php if ($status == 1) { ?>checked<?php }?> <label for="Status">Publier</label>
