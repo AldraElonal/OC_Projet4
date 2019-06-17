@@ -8,11 +8,11 @@ class ControllerPost
 {
     const ADMIN = 50;
 
-    public function post()
+    static function post()
     {
         if (isset($_GET['postid'])) {
             $idPost = htmlspecialchars($_GET['postid']);
-            if ($this->postExist($idPost)) {
+            if (self::postExist($idPost)) {
                 $mdlpost = new Post();
                 $post = $mdlpost->getPost($idPost);
                 $mdlcomment = new Comments();
@@ -21,66 +21,62 @@ class ControllerPost
                 $display->createViewPost($post, $comments);
 
             } else { // id invalide
-                $ctrlHomePage = new ControllerHomePage();
-                $ctrlHomePage->homePage();
+
+                ControllerHomePage::homePage();
             }
         } else { // pas de Get id
-            $ctrlHomePage = new ControllerHomePage();
-            $ctrlHomePage->homePage();
+            ControllerHomePage::homePage();
         }
 
     }
 
-    public function signalComment()
+    static function signalComment()
     {
         if (isset($_GET['postid']) AND isset($_GET['commentid'])) {
             $idPost = htmlspecialchars($_GET['postid']);
             $idComment = htmlspecialchars($_GET['commentid']);
 
-            if ($this->postExist($idPost)) {
+            if (self::postExist($idPost)) {
                 $mdlcomment = new Comments();
                 $mdlcomment->signalComment($idComment);
-                $this->post();
+                self::post();
 
             } else {
-                $ctrlHomePage = new ControllerHomePage();
-                $ctrlHomePage->homePage();
+                ControllerHomePage::homePage();
             }
 
         } else if (isset($_GET['postid'])) { // pas id de commentaire
-            $this->post();
+            self::post();
 
         } else {
-            $ctrlHomePage = new ControllerHomePage();
-            $ctrlHomePage->homePage();
+            ControllerHomePage::homePage();
         }
     }
 
-    public function addComment()
+    static function addComment()
     {
         if (isset($_GET['postid']) AND isset($_POST['pseudo']) AND isset($_POST['content'])) {
 
             $idPost = htmlspecialchars($_GET['postid']);
             $pseudo = htmlspecialchars($_POST['pseudo']);
             $content = htmlspecialchars($_POST['content']);
-            if ($this->postExist($idPost) AND $pseudo != null AND $content != null) {
+            if (self::postExist($idPost) AND $pseudo != null AND $content != null) {
                 $mdlComment = new Comments();
                 $mdlComment->addComment($idPost, $pseudo, $content);
-                $this->post();
+                self::post();
             } else { // problemes dans le formulaire on essaye d'afficher le post
-                $this->post();
+                self::post();
             }
 
         } elseif (isset($_GET['postid'])) { // pas de pseudo ou de contenu, on affiche juste le post
-            $this->post();
+            self::post();
 
         } else {
-            $ctrlHomePage = new ControllerHomePage();
-            $ctrlHomePage->homePage();
+            ControllerHomePage::homePage();
         }
     }
 
-    public function postManager()
+    static function postManager()
     {
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
             $mdlpost = new Post();
@@ -89,22 +85,22 @@ class ControllerPost
             $display->createViewPostManager($posts);
 
         } else {
-            $ctrlHomePage = new ControllerHomePage();
-            $ctrlHomePage->homePage();
+            ControllerHomePage::homePage();
         }
 
     }
 
-    public function editPost()
+    static function editPost()
     {
 
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
-            $mdlpost = new Post();
+
 
             if(isset($_GET['postid'])) {
                 $idpost = htmlspecialchars($_GET['postid']);
 
-                if ($mdlpost->idPostExist($idpost)) {
+                if (self::postExist($idPost)) {
+                    $mdlpost = new Post();
                     $post = $mdlpost->getPost($idpost);
                     $title = $post['Title'];
                     $date = $post['Created_at'];
@@ -128,7 +124,7 @@ class ControllerPost
         }
     }
 
-    private function postExist($idPost)
+    static function postExist($idPost)
     {
         $mdlpost = new Post();
         return $mdlpost->idPostExist($idPost);

@@ -7,14 +7,14 @@ namespace  App;
 class ControllerConnect
 {
 
-    public function connect()
+    static function connect()
     {
         $display = new View();
         $display->createViewConnect();
     }
 
 
-    public function disconnect()
+    static function disconnect()
     {
 
         $_SESSION['User'] = 0;

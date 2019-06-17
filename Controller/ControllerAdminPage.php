@@ -4,12 +4,12 @@ namespace App;
 
 
 
-class ControllerAdminPage
+ class ControllerAdminPage
 {
 
     const ADMIN = 50;
 
-    public function adminPage()
+    static function adminPage()
     {
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
             $display = new View();
@@ -17,12 +17,11 @@ class ControllerAdminPage
             $title = "Commentaires soumis à modération";
             $display->createViewAdminPage($mdlcomments->getCommentsPerStatus(1), $title);
         } else {
-            $ctrlHomePage = new ControllerHomePage();
-            $ctrlHomePage->homePage();
+            ControllerHomePage::homePage();
         }
     }
 
-    public function deleteComment()
+    static function deleteComment()
     {
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
             $mdlcomments = new Comments();
@@ -39,12 +38,11 @@ class ControllerAdminPage
             $display->createViewAdminPage($mdlcomments->getCommentsPerStatus(1), $title);
 
         } else {
-            $ctrlHomePage = new ControllerHomePage();
-            $ctrlHomePage->homePage();
+            ControllerHomePage::homePage();
         }
     }
 
-    public function confirmComment()
+    static function confirmComment()
     {
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
             $mdlcomments = new Comments();
@@ -61,12 +59,11 @@ class ControllerAdminPage
             $display->createViewAdminPage($mdlcomments->getCommentsPerStatus(1), $title);
 
         } else {
-            $ctrlHomePage = new ControllerHomePage();
-            $ctrlHomePage->homePage();
+            ControllerHomePage::homePage();
         }
     }
 
-    public function deletedComments()
+    static function deletedComments()
     {
 
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
@@ -75,8 +72,7 @@ class ControllerAdminPage
             $mdlcomments = new Comments();
             $display->createViewAdminPage($mdlcomments->getCommentsPerStatus(0), $title);
         } else {
-            $ctrlHomePage = new ControllerHomePage();
-            $ctrlHomePage->homePage();
+            ControllerHomePage::homePage();
         }
     }
 }
