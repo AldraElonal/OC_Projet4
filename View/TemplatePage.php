@@ -17,7 +17,7 @@ const ADMIN = 50;
 <header class="container-fluid ">
 
     <div class="row">
-        <h1 class=offset-md-1> Projet 4 : Blog d'écrivain</h1>
+        <h1 class=offset-md-1> <a href="index.php">Projet 4 : Blog d'écrivain</a></h1>
 
         <?php if (!isset($_SESSION['User']['role']) OR $_SESSION['User']['role'] < ADMIN) { ?><a href="index.php?action=login"
                                                                                  class="btnconnexion btn btn-danger offset-md-5">Connexion</a>
@@ -29,7 +29,7 @@ const ADMIN = 50;
         <?php echo $content ?>
 
     <footer class="container-fluid">
-        <p class="col-md-3 offset-md-7"> Blog réalisé avec php,mysql et la bibliothèque css Bootstrap</p>
+        <p class="col-md-5 offset-md-6"> Blog réalisé avec php,mysql et la bibliothèque css Bootstrap</p>
     </footer>
     <?php if(isset($script)){ echo $script;} ?>
 </body>

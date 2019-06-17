@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <div class="row ">
-    <div class="col-md-8 offset-md-2">
+    <div class="contenu rounded col-md-8 offset-md-2">
         <?php
 for($i = 0; $i< count($posts); $i++)
 {

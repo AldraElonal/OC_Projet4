@@ -1,7 +1,7 @@
 <?php
 ob_start();?>
 <div class="row ">
-    <div class="col-md-7 offset-md-2">
+    <div class="contenu rounded col-md-7 offset-md-2">
 <h2> Gestion des Articles</h2>
 <ul class=" list-group rounded">
   <div class ="row" > <a href="index.php?action=AjouterArticle"class="btn btn-success col-md-3">Ecrire un Nouveau
@@ -28,4 +28,4 @@ ob_start();?>
 <?php
 $content = ob_get_clean();
 
-?>fddc$
+?>

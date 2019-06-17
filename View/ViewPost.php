@@ -3,7 +3,7 @@ ob_start();
 
 ?>
     <div class="row ">
-        <div class="col-md-7 offset-md-2">
+        <div class="contenu rounded col-md-7 offset-md-2">
     <article class="rounded">
         <h2><?= $post['Title'] ?></a></h2>
         <p> Lle <?= $post['Created_at'] ?> </p>

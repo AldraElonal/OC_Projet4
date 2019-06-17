@@ -13,14 +13,15 @@
             'insertdatetime media table paste code help wordcount'
         ],
         toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | image | help',
-        content_css: [
-            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-            '//www.tiny.cloud/css/codepen.min.css'
-        ],
+        content_css: "style/tinymce.css",//[
+            // '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            // '//www.tiny.cloud/css/codepen.min.css'
+        // ],
         force_br_newlines : true,
         force_p_newlines : false,
         forced_root_block : '',
         images_upload_url : "imagesUpload.php",
+
 
     });
 
