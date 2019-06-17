@@ -12,7 +12,6 @@ class Routeur
 
             if (isset($_GET['action'])) {// on détermine l'action à effectuer
                 $action = htmlspecialchars($_GET['action']);
-var_dump($action);
                 if ($action == 'billet') {
                     $ctrlPost = new ControllerPost();
                     $ctrlPost->post();
