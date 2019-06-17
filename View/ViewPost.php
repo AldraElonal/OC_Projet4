@@ -2,6 +2,8 @@
 ob_start();
 
 ?>
+    <div class="row ">
+        <div class="col-md-7 offset-md-2">
     <article class="rounded">
         <h2><?= $post['Title'] ?></a></h2>
         <p> Lle <?= $post['Created_at'] ?> </p>
@@ -37,7 +39,8 @@ ob_start();
     </form>
 
     <a href="index.php" class="btn btn-primary"> Retour à l'Acceuil</a>
-</div>
+    </div>
+    </div>
 <?php
 
 $content = ob_get_clean();

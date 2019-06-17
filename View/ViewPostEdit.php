@@ -1,5 +1,7 @@
 <?php
 ob_start(); ?>
+    <div class="row ">
+        <div class="col-md-7 offset-md-2">
     <h2> Edition d'Article</h2>
     <form class=" col-md-7 rounded EditArticle" method="post"
           action="editpost.php<?php if ($id !== null) { ?>?postId=<?php echo $id; } ?>">
@@ -27,6 +29,8 @@ ob_start(); ?>
             </li>
         </ul>
     </nav>
+
+    </div>
 <?php
 $content = ob_get_clean();
 

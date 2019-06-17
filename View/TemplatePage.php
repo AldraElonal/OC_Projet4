@@ -26,11 +26,8 @@ const ADMIN = 50;
         <?php } ?>
     </div>
 </header>
-<div class="row ">
-    <div class="col-md-7 offset-md-2">
         <?php echo $content ?>
 
-    </div>
     <footer class="container-fluid">
         <p class="col-md-3 offset-md-7"> Blog réalisé avec php,mysql et la bibliothèque css Bootstrap</p>
     </footer>
