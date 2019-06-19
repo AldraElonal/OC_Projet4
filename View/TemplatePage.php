@@ -1,7 +1,8 @@
 <?php
 namespace  Front;
 
-const ADMIN = 50;
+use App\Member;
+
 ?>
 
 <!doctype html>
@@ -19,9 +20,9 @@ const ADMIN = 50;
     <div class="row">
         <h1 class=offset-md-1> <a href="index.php">Projet 4 : Blog d'écrivain</a></h1>
 
-        <?php if (!isset($_SESSION['User']['role']) OR $_SESSION['User']['role'] < ADMIN) { ?><a href="index.php?action=login"
+        <?php if (!isset($_SESSION['User']['role']) OR $_SESSION['User']['role'] < Member::ADMIN) { ?><a href="index.php?action=login"
                                                                                  class="btnconnexion btn btn-danger offset-md-5">Connexion</a>
-        <?php } else { ?><a href="index.php?action=admin" class="btnconnexion btn btn-danger offset-md-5">Panneau
+        <?php } else { ?><a href="index.php?action=admin" class="btnconnexion btn btn-danger offset-md-4">Panneau
             d'Administation</a>  <a href="index.php?action=unlog" class="btndisconnexion btn btn-danger">Déconnexion</a>
         <?php } ?>
     </div>

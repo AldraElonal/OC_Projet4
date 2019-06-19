@@ -18,6 +18,12 @@ class Post extends Model {
             return $post;
     }
 
+    public function deletePost($idPost){
+       $req = $this->executeRequest("DELETE FROM Post WHERE Id = ?",array($idPost));
+        $req = $this->executeRequest("DELETE FROM Comment WHERE Id_Post = ?",array($idPost));
+
+    }
+
     public function idPostExist($idPost){
         $exist = $this->executeRequest("SELECT COUNT(Id) FROM Post WHERE `Id`=?",array($idPost));
         $exist = $exist->fetch()[0];
@@ -30,11 +36,11 @@ class Post extends Model {
     }
 
     public function addPost($title,$content,$status){
-        $req = $this->executeRequest("INSERT INTO `post`(`Title`, `Created_at`, `Content`, `Status`) VALUES (?,NOW(),?,?)",array($title,$content,$status));
+        $this->executeRequest("INSERT INTO `post`(`Title`, `Created_at`, `Content`, `Status`) VALUES (?,NOW(),?,?)",array($title,$content,$status));
     }
 
     public function  editPost($id,$title,$content,$status){
-        $req = $this->executeRequest("UPDATE `post` SET `Title`=?,`Content`=?,`Status`=? WHERE Id=?",array($title,$content,$status,$id));
+        $this->executeRequest("UPDATE `post` SET `Title`=?,`Content`=?,`Status`=? WHERE Id=?",array($title,$content,$status,$id));
 
     }
 

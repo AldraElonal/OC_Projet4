@@ -12,53 +12,61 @@ class Routeur
 
             if (isset($_GET['action'])) {// on détermine l'action à effectuer
                 $action = htmlspecialchars($_GET['action']);
-                if ($action == 'billet') {
-                    ControllerPost::post();
+                switch ($action) {
+                    case 'billet' :
+                        ControllerPost::post();
+                        break;
 
-                } elseif ($action == 'signaler') {
+                    case 'signaler' :
+                        ControllerPost::signalComment();
+                        break;
 
-                   ControllerPost::signalComment();
+                    case   'commenter' :
+                        ControllerPost::addComment();
+                        break;
 
-                } elseif ($action == 'commenter') {
+                    case  'login' :
+                        ControllerConnect::connect();
+                        break;
 
-                    ControllerPost::addComment();
+                    case 'admin' :
+                        ControllerAdminPage::adminPage();
+                        break;
 
-                } else if ($action == 'login') {
+                    case 'commentairesSupprimes' :
+                        ControllerAdminPage::deletedComments();
+                        break;
 
-                    ControllerConnect::connect();
+                    case "supprimerCommentaire" :
+                        ControllerAdminPage::deleteComment();
+                        break;
 
-                } else if ($action == 'admin') {
+                    case "validerCommentaire" :
+                        ControllerAdminPage::confirmComment();
+                        break;
 
-                    ControllerAdminPage::adminPage();
+                    case "gestionArticles" :
+                        ControllerPost::postManager();
+                        break;
 
-                } else if ($action == 'commentairesSupprimes') {
-                    ControllerAdminPage::deletedComments();
+                    case "AjouterArticle" :
+                        ControllerPost::editPost();
+                        break;
 
-                } else if ($action == "supprimerCommentaire") {
+                    case "EditerArticle" :
+                        ControllerPost::editPost();
+                        break;
 
-                    ControllerAdminPage::deleteComment();
+                    case "SupprimerArticle" :
+                        ControllerPost::deletePost();
+                        break;
 
-                } else if ($action == "validerCommentaire") {
+                    case "unlog" :
+                        ControllerConnect::disconnect();
+                        break;
 
-                    ControllerAdminPage::confirmComment();
-
-                } else if ($action == "gestionArticles") {
-
-                   ControllerPost::postManager();
-
-//fusion ajouter & editer ? => ajouter = editer sans indiquer postid
-                } else if ($action == "AjouterArticle") {
-
-                    ControllerPost::editPost();
-
-                } else if ($action == "EditerArticle") {
-                    ControllerPost::editPost();;
-
-                } else if ($action == "unlog") {
-                    ControllerConnect::disconnect();
-
-                } else { //action inconnue
-                   ControllerHomePage::homePage();
+                    default: //action inconnue
+                        ControllerHomePage::homePage();
                 }
 
             } else {// pas d'action définie, on affiche la page d'acceuil
@@ -66,7 +74,7 @@ class Routeur
             }
 
         } catch (\Exception $e) {
-            echo 'Erreur';
+            echo 'Erreur'; // afficher erreur générique?
         }
     }
 

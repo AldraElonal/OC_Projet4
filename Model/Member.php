@@ -5,7 +5,7 @@ namespace App;
 
  class  Member extends Model
 {
-
+    const ADMIN = 50;
 
     public function checkUser($pseudo, $password)
     {

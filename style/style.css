@@ -22,13 +22,13 @@
 body
 {
     background-image: url("img/bookBackground.jpg");
-    width : 97vw;
+    /*width : 97vw;*/
 
 }
 
 body, .btn {
     font-family : 'Cursivestandard', sans-serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 h1,h2,h3
@@ -115,7 +115,7 @@ footer
 
 .contenu
 {
-    background-color: white;
+    background-color: #875d08;
     margin-top: 85px;
     margin-bottom: 85px;
     border : black thick  ridge ;
@@ -157,4 +157,9 @@ footer
 .form-control
 {
     font-size: 1.2em;
+}
+
+a
+{
+    color : red;
 }

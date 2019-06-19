@@ -3,10 +3,9 @@
 namespace App;
 
 
-
 class ControllerPost
 {
-    const ADMIN = 50;
+
 
     static function post()
     {
@@ -78,7 +77,7 @@ class ControllerPost
 
     static function postManager()
     {
-        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
+        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
             $mdlpost = new Post();
             $posts = $mdlpost->getPosts();
             $display = new View();
@@ -93,13 +92,13 @@ class ControllerPost
     static function editPost()
     {
 
-        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
+        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
 
 
-            if(isset($_GET['postid'])) {
+            if (isset($_GET['postid'])) {
                 $idpost = htmlspecialchars($_GET['postid']);
 
-                if (self::postExist($idPost)) {
+                if (self::postExist($idpost)) {
                     $mdlpost = new Post();
                     $post = $mdlpost->getPost($idpost);
                     $title = $post['Title'];
@@ -113,11 +112,35 @@ class ControllerPost
                     $display = new View();
                     $display->createViewEditPost();
                 }
-            }else{// no postId
-                $display= new View();
+            } else {// no postId
+                $display = new View();
                 $display->createViewEditPost();
             }
 
+        } else {
+            $ctrlHomePage = new ControllerHomePage();
+            $ctrlHomePage->homePage();
+        }
+    }
+
+
+    static function deletePost()
+    {
+
+        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
+
+            $mdlpost = new Post();
+            if (isset($_GET['postid'])) {
+                $idpost = htmlspecialchars($_GET['postid']);
+
+                if (self::postExist($idpost)) {
+                    $mdlpost->deletePost($idpost);
+
+                }
+            }
+            $posts = $mdlpost->getPosts();
+            $display = new View();
+            $display->createViewPostManager($posts);
         } else {
             $ctrlHomePage = new ControllerHomePage();
             $ctrlHomePage->homePage();

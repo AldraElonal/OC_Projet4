@@ -16,7 +16,8 @@ ob_start(); ?>
             <input type="checkbox" name="Status" id="Status" class="col-md-1 form-control" <?php if ($status == 1) { ?>checked<?php }?>/>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button><a href="index.php?action=SupprimerArticle&postid=<?=
+        $id ?>"class="btn btn-danger">Supprimer</a>
     </form>
     </div>
     <nav class="col-md-2  rounded">

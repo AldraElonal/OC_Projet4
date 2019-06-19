@@ -7,11 +7,11 @@ namespace App;
  class ControllerAdminPage
 {
 
-    const ADMIN = 50;
+
 
     static function adminPage()
     {
-        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
+        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
             $display = new View();
             $mdlcomments = new Comments();
             $title = "Commentaires soumis à modération";
@@ -23,7 +23,7 @@ namespace App;
 
     static function deleteComment()
     {
-        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
+        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
             $mdlcomments = new Comments();
 
             if (isset($_GET['commentid'])) {
@@ -44,7 +44,7 @@ namespace App;
 
     static function confirmComment()
     {
-        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
+        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
             $mdlcomments = new Comments();
 
             if (isset($_GET['commentid'])) {
@@ -66,7 +66,7 @@ namespace App;
     static function deletedComments()
     {
 
-        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= self::ADMIN) {
+        if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
             $display = new View();
             $title = "Commentaires Supprimés";
             $mdlcomments = new Comments();
