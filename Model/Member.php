@@ -3,7 +3,7 @@
 namespace App;
 
 
- class  Member extends Model
+class  Member extends Model
 {
     const ADMIN = 50;
 
@@ -11,7 +11,7 @@ namespace App;
     {
         $req = $this->executeRequest('Select * FROM users WHERE pseudo = ? ', array($pseudo));
         $user = $req->fetchAll();
-        if (password_verify($password,$user[0]['password'])) {
+        if (password_verify($password, $user[0]['password'])) {
 
             return true;
         } else {

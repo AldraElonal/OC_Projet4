@@ -9,9 +9,9 @@ $accepted_origins = array("http://localhost", "http://192.168.1.1", "http://exam
  *********************************************/
 $imageFolder = "img/";
 
-reset ($_FILES);
+reset($_FILES);
 $temp = current($_FILES);
-if (is_uploaded_file($temp['tmp_name'])){
+if (is_uploaded_file($temp['tmp_name'])) {
     if (isset($_SERVER['HTTP_ORIGIN'])) {
         // same-origin requests won't set an origin. If the origin is set, it must be valid.
         if (in_array($_SERVER['HTTP_ORIGIN'], $accepted_origins)) {

@@ -8,17 +8,17 @@ ob_start();
                 <h2><?= $title ?></h2>
                 <?php for ($i = 0; $i < count($comments); $i++) {
                     ?>
-                        <div class=" row">
-                            <p class="col-md-5"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['Created_at'] ?>
-                                : </p>
-                            <?php if ($comments[$i]['Status'] > 0) { ?>  <a
-                                    href="index.php?action=validerCommentaire&commentid=<?= $comments[$i]['Id'] ?>"
-                                    class=" btn btn-success offset-md-3 ">Valider</a>
-                                <a href="index.php?action=supprimerCommentaire&commentid=<?= $comments[$i]['Id'] ?>"
-                                   class="btnsupprimer btn btn-danger ">Supprimer</a>
-                            <?php } ?>
-                        </div>
-                        <p><?= $comments[$i]['Content'] ?> </p>
+                    <div class=" row">
+                        <p class="col-md-5"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['Created_at'] ?>
+                            : </p>
+                        <?php if ($comments[$i]['Status'] > 0) { ?>  <a
+                                href="index.php?action=validerCommentaire&commentid=<?= $comments[$i]['Id'] ?>"
+                                class=" btn btn-success offset-md-3 ">Valider</a>
+                            <a href="index.php?action=supprimerCommentaire&commentid=<?= $comments[$i]['Id'] ?>"
+                               class="btnsupprimer btn btn-danger ">Supprimer</a>
+                        <?php } ?>
+                    </div>
+                    <p><?= $comments[$i]['Content'] ?> </p>
                 <?php } ?>
 
             </div>

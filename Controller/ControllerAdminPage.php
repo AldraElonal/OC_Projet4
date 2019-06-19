@@ -3,10 +3,8 @@
 namespace App;
 
 
-
- class ControllerAdminPage
+class ControllerAdminPage
 {
-
 
 
     static function adminPage()
