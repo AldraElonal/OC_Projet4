@@ -74,7 +74,7 @@ class Routeur
             }
 
         } catch (\Exception $e) {
-            echo 'Erreur'; // afficher erreur générique?
+            echo 'Erreur' . $e; // afficher erreur générique?
         }
     }
 

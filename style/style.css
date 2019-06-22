@@ -25,9 +25,25 @@ body {
 
 }
 
-body, .btn {
+body,.btn {
     font-family: 'CapsuulaRegular', sans-serif;
     font-size: 1.3em;
+}
+
+.btnsignal{
+    font-family: 'CapsuulaRegular', sans-serif;
+    padding-bottom: 0;
+    padding-top : 0;
+
+}
+
+.commentHead, .btn
+{
+    font-weight: bold;
+}
+
+.commentContent{
+    margin-bottom : 1.5em;
 }
 
 h1, h2, h3 {
@@ -49,12 +65,15 @@ div {
 }
 
 header {
+
     padding: 10px 0 !important;
     margin-bottom: 5px;
+    top : 0;
 }
 
 header, footer {
     position: fixed;
+
     background: #e9e9e9;
     padding: 10px 0;
     z-index: 2;
@@ -152,4 +171,29 @@ footer {
 
 a {
     color: red;
+}
+
+.image_homepage
+{
+max-width :200px;
+max-height: 400px;
+    /*width : auto;*/
+    /*height: auto;*/
+
+}
+
+.image_post
+{
+    max-width :400px;
+    max-height: 500px;
+    /*width : auto;*/
+    /*height: auto;*/
+
+}
+
+.artfrt
+{
+    margin-left : 0 ;
+    /*margin-right: 0 !important;*/
+   
 }

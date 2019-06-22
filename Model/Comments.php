@@ -7,7 +7,7 @@ class Comments extends Model
 
     public function getCommentsPerStatus($status)
     {
-        $comments = $this->executeRequest("SELECT * FROM comment WHERE Status = ? ", array($status));
+        $comments = $this->executeRequest("SELECT *,DATE_FORMAT(Created_At,'%d/%m/%Y') AS jour,DATE_FORMAT(Created_At,'%Hh%imin') AS heure FROM comment WHERE Status = ? ", array($status));
         return $comments->fetchAll();
 
     }
@@ -21,7 +21,7 @@ class Comments extends Model
 
     public function getCommentsPerPost($idPost)
     {
-        $comments = $this->executeRequest("SELECT * FROM comment WHERE Id_Post = ? AND `Status`>0  ORDER BY Created_At ASC", array($idPost));
+        $comments = $this->executeRequest("SELECT *,DATE_FORMAT(Created_At,'%d/%m/%Y') AS jour,DATE_FORMAT(Created_At,'%Hh%imin') AS heure FROM comment WHERE Id_Post = ? AND `Status`>0  ORDER BY Created_At ASC", array($idPost));
         return $comments->fetchAll();
 
     }

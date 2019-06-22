@@ -6,7 +6,7 @@ namespace App;
 class View
 {
 
-    public function createViewHomePage($posts)
+    public function createViewHomePage($posts,$bio)
     {
         require "ViewHomePage.php";
         require "TemplatePage.php";

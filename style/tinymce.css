@@ -1,38 +1,31 @@
 @font-face {
-    font-family: 'Angelface';
-    src: url('font/Angelface.otf');
-
-}
-
-@font-face {
-    font-family: 'Cursif';
-    src: url('font/Cursif.ttf');
-
-}
-
-@font-face {
-    font-family: "Cursivestandard";
-    src: url("font/Cursive_standard.eot?") format("eot"), url("font/Cursive_standard.woff") format("woff"), url("font/Cursive_standard.ttf") format("truetype"), url("font/Cursive_standard.svg#Cursivestandard") format("svg");
+    font-family: "CapsuulaRegular";
+    src: url("font/Capsuula.eot?") format("eot"),
+    url("font/Capsuula.woff") format("woff"),
+    url("font/Capsuula.ttf") format("truetype"),
+    url("font/Capsuula.svg#Capsuula") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
-
 @font-face {
-    font-family: "PakType Naqsh";
-    src: url("font/PakType_Naqsh_2_2.eot?") format("eot"), url("font/PakType_Naqsh_2_2.woff") format("woff"), url("font/PakType_Naqsh_2_2.ttf") format("truetype"), url("font/PakType_Naqsh_2_2.svg#PakTypeNaqsh") format("svg");
+    font-family: "Enigmatic Regular";
+    src: url("font/Enigma__2.eot?") format("eot"),
+    url("font/Enigma__2.woff") format("woff"),
+    url("font/Enigma__2.ttf") format("truetype"),
+    url("font/Enigma__2.svg#Enigmatic") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 
 body, .btn {
-    font-family: 'Cursivestandard', sans-serif;
+    font-family: 'CapsuulaRegular', sans-serif;
     font-size: 1.2em;
 }
 
 h1, h2, h3 {
-    font-family: "PakType Naqsh", sans-serif;
+    font-family: "Enigmatic Regular", sans-serif;
     font-size: 2em;
 }
 
@@ -146,3 +139,4 @@ footer {
 .form-control {
     font-size: 1.2em;
 }
+

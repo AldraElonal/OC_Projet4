@@ -18,13 +18,22 @@ ob_start(); ?>
             </ul>
         </div>
         <nav class="col-md-2  rounded">
-            <h2>Menu de navigation</h2>
+            <h2>Navigation</h2>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=commentairesSupprimes">Commentaires Supprimés</a>
+                    Gestion des commentaires
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link offset-md-1" href="index.php?action=commentairesSupprimes"><i class="fas fa-caret-right"></i> Commentaires à Modérer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link offset-md-1" href="index.php?action=commentairesSupprimes"><i class="fas fa-caret-right"></i> Commentaires Supprimés</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?action=gestionArticles">Gestion des Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link offset-md-1" href="index.php?action=AjouterArticle"><i class="fas fa-caret-right"></i> Ajouter un article</a>
                 </li>
             </ul>
         </nav>

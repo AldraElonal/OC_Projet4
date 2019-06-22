@@ -3,23 +3,26 @@ ob_start();
 
 ?>
     <div class="row ">
-        <div class="contenu rounded col-md-7 offset-md-2">
+        <div class="contenu rounded col-md-9 offset-md-2">
             <article class="rounded">
                 <h2><?= $post['Title'] ?></a></h2>
-                <p> Lle <?= $post['Created_at'] ?> </p>
-                <p><?= $post['Content'] ?> </p></article>
+                <p> Le <?= $post['jour'] ?> à <?= $post['heure'] ?> </p>
+                <div class="container-fluid"><div class="row"><div class = col-md-8><?= $post['Content'] ?> </div><?php if($post['Img_Name'] != null){ ?><div class="col-md-4"><img class = "image_post img-fluid mx-auto" src="<?= "img/". $post['Img_Name']; ?>"/></div> <?php } ?></div></article>
 
             <div class="rounded comments">
                 <h2>Commentaires</h2>
                 <?php for ($i = 0; $i < count($comments); $i++) {
                     ?>
                     <div class="row">
-                        <p class=" col-md-6"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['Created_at'] ?>
+                        <p class=" col-md-6 commentHead"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['jour'] ?> à <?= $comments[$i]['heure'] ?>
                             : </p>
                         <?php if ($comments[$i]['Status'] == 2) { ?><a
                             href="<?= "index.php?action=signaler&postid=" . $post['Id'] . "&commentid=" . $comments[$i]['Id'] ?>"
-                            class="btn btn-danger offset-md-3">Signaler</a><?php } ?></div>
-                    <p><?php if ($comments[$i]['Status'] == 1) {
+                            class="btn btn-danger offset-md-3 btnsignal">Signaler</a><?php }
+                        else{?><button class="btn btn-secondary offset-md-3 btnsignal" disabled>Signaler</button><?php
+
+                            }?></div>
+                    <p class="commentContent"><?php if ($comments[$i]['Status'] == 1) {
                             ?><em>Contenu soumis à la modération</em><?php } else {
                             echo $comments[$i]['Content'];
                         } ?> </p>

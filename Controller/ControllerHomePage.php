@@ -10,9 +10,11 @@ class ControllerHomePage
     static function homePage()
     {
         $post = new Post();
-        $posts = $post->getPosts();
+        $posts = $post->getPostsPerStatus(1);
+        $bio = $post->getPostsPerStatus(2);
+//        var_dump($bio);
         $display = new View();
-        $display->createViewHomePage($posts);
+        $display->createViewHomePage($posts,$bio);
     }
 
 }
