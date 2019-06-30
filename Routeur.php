@@ -65,6 +65,10 @@ class Routeur
                         ControllerConnect::disconnect();
                         break;
 
+                    case "EditerBiographie" :
+                        ControllerBiography::editBiography();
+                        break;
+
                     default: //action inconnue
                         ControllerHomePage::homePage();
                 }

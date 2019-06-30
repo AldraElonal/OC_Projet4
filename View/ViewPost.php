@@ -14,7 +14,7 @@ ob_start();
                 <?php for ($i = 0; $i < count($comments); $i++) {
                     ?>
                     <div class="row">
-                        <p class=" col-md-6 commentHead"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['jour'] ?> à <?= $comments[$i]['heure'] ?>
+                        <p class="col-md-4 commentHead"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['jour'] ?> à <?= $comments[$i]['heure'] ?>
                             : </p>
                         <?php if ($comments[$i]['Status'] == 2) { ?><a
                             href="<?= "index.php?action=signaler&postid=" . $post['Id'] . "&commentid=" . $comments[$i]['Id'] ?>"

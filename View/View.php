@@ -6,7 +6,7 @@ namespace App;
 class View
 {
 
-    public function createViewHomePage($posts,$bio)
+    public function createViewHomePage($posts,$bio,$numbercommentsperposts)
     {
         require "ViewHomePage.php";
         require "TemplatePage.php";
@@ -23,7 +23,7 @@ class View
 
     public function createViewConnect()
     {
-        require "Viewconnect.php";
+        require "ViewConnect.php";
         require "TemplatePage.php";
     }
 
@@ -39,11 +39,17 @@ class View
         require "TemplatePage.php";
     }
 
-    public function createViewEditPost($id = null, $title = null, $Created = null, $content = null, $status = null)
+    public function createViewEditPost($id = null, $title = null, $content = null, $status = null)
     {
         require "scriptTinyMCE.php";
         require "ViewPostEdit.php";
         require "TemplatePage.php";
 
+    }
+
+    public function createViewEditBiography($content = null){
+        require "scriptTinyMCE.php";
+        require "ViewEditBiography.php";
+        require "TemplatePage.php";
     }
 }

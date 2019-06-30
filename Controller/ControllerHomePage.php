@@ -9,12 +9,14 @@ class ControllerHomePage
 
     static function homePage()
     {
-        $post = new Post();
-        $posts = $post->getPostsPerStatus(1);
-        $bio = $post->getPostsPerStatus(2);
-//        var_dump($bio);
+        $mdlpost = new Post();
+        $mdlbiography = new Biography();
+$mdlcomments = new Comments();
+        $posts = $mdlpost->getPostsPerStatus(1);
+       $numbercommentsperposts = $mdlcomments->getNumberCommentsPerPosts($posts);
+        $bio = $mdlbiography->getBiography();
         $display = new View();
-        $display->createViewHomePage($posts,$bio);
+        $display->createViewHomePage($posts,$bio,$numbercommentsperposts);
     }
 
 }

@@ -10,10 +10,13 @@ ob_start();
 
     <div class ="container artfrt">
     <div class="row">
-    <div class ="col-md-9">
+    <div class ="col-md-8">
 
         <p> <?php echo $bio[0]['Content']?></p>
     </div>
+        <div class="col-md-3 offset-md-1">
+            <img class=" image_homepage img_fluid mx-auto" src="<?= "img/". $bio[0]['Img_Name']; ?>">
+        </div>
     </div>
     </div>
             </article>
@@ -32,9 +35,9 @@ ob_start();
                     <div class ="container artfrt"><div class="row"><div class ="col-md-8"><p><?php
 
 
-                        if (strlen($posts[$i]['Content']) > 200) {
+                        if (strlen($posts[$i]['Content']) > 320) {
 
-                            $extract = substr($posts[$i]['Content'], 0, 200);
+                            $extract = substr($posts[$i]['Content'], 0, 300);
                             $extract = $extract . '... ';
 //                            var_dump($posts[$i]['Content']);
 //                            var_dump($extract);
@@ -42,7 +45,7 @@ ob_start();
                         } else {
                             echo $posts[$i]['Content'];
                         }
-                                    ?> </div</p></div><?php if($posts[$i]['Img_Name'] != null){ ?><div class="col-md-3 offset-md-1"><img class = "image_homepage img-fluid mx-auto " src="<?= "img/". $posts[$i]['Img_Name']; ?>"/></div> <?php } ?></div> </article>
+                                    ?> </div</p></div><?php if($posts[$i]['Img_Name'] != null){ ?><div class="col-md-3 offset-md-1"><img class = "image_homepage img-fluid mx-auto " src="<?= "img/". $posts[$i]['Img_Name']; ?>"/></div> <?php } ?></div> <i class="fas fa-comment"></i> <?= $numbercommentsperposts[$i] ?></article>
 
 
 

@@ -9,7 +9,7 @@ ob_start();
                 <?php for ($i = 0; $i < count($comments); $i++) {
                     ?>
                     <div class=" row">
-                        <p class="col-md-5"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['jour'] ?> à <?= $comments[$i]['heure'] ?>
+                        <p class="col-md-5 commentHead"><?= $comments[$i]['Name'] ?> dit le <?= $comments[$i]['jour'] ?> à <?= $comments[$i]['heure'] ?>
                             : </p>
                         <?php if ($comments[$i]['Status'] > 0) { ?>  <a
                                 href="index.php?action=validerCommentaire&commentid=<?= $comments[$i]['Id'] ?>"
@@ -25,21 +25,25 @@ ob_start();
         </div>
         <nav class="col-md-2  rounded">
             <h2>Navigation</h2>
-            <ul class="nav">
-                <li class="nav-item">
+            <ul class="nav ">
+                <li class="nav-item col-md-12 ">
                     Gestion des commentaires
                 </li>
-                <li class="nav-item">
+                <li class="nav-item col-md-12 ">
                     <a class="nav-link offset-md-1" href="index.php?action=commentairesSupprimes"><i class="fas fa-caret-right"></i> Commentaires à Modérer</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item col-md-12 ">
                     <a class="nav-link offset-md-1" href="index.php?action=commentairesSupprimes"><i class="fas fa-caret-right"></i> Commentaires Supprimés</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=gestionArticles">Gestion des Articles</a>
+
+                <li class="nav-item col-md-12 ">
+                    <a class="nav-link gstctn" href="index.php?action=gestionArticles">Gestion du Contenu</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item col-md-12 ">
                     <a class="nav-link offset-md-1" href="index.php?action=AjouterArticle"><i class="fas fa-caret-right"></i> Ajouter un article</a>
+                </li>
+                <li class="nav-item col-md-12 ">
+                    <a class="nav-link offset-md-1" href="index.php?action=EditerBiographie"><i class="fas fa-caret-right"></i> Editer la biographie</a>
                 </li>
             </ul>
         </nav>

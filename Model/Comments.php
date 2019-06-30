@@ -43,12 +43,29 @@ class Comments extends Model
 
     public function existComment($idComment)
     {
-        $exist = $this->executeRequest("SELECT COUNT(Id) FROM Comment WHERE `Id`=?", array($idComment));
+        $exist = $this->executeRequest("SELECT COUNT(Id) FROM comment WHERE `Id`=?", array($idComment));
         $exist = $exist->fetch()[0];
         if ($exist == '1') {
             return true;
         } else {
             return false;
         }
+    }
+
+    public function getNumberCommentsPerPosts($posts)
+    {
+        $numbercommentsperposts = array();
+        foreach ($posts as $post) {
+            array_push($numbercommentsperposts, $this->getNumberCommentsPerPost($post['Id']));
+        }
+        return $numbercommentsperposts;
+    }
+
+
+    public function getNumberCommentsPerPost($postid)
+    {
+        $numbercommentsperpost = $this->executeRequest("SELECT COUNT(Id) FROM comment WHERE `Id_Post`=? AND Status > 0 ", array($postid));
+        return $numbercommentsperpost->fetch()[0];
+
     }
 }

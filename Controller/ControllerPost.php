@@ -94,19 +94,38 @@ class ControllerPost
 
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
 
+            if($_SESSION['PostEdit']['error'] == false ){
+                $_SESSION['PostEdit']['error'] = true;
+                $title = $_SESSION['PostEdit']['title'];
+                $content = $_SESSION['PostEdit']['content'];
+                $status = $_SESSION['PostEdit']['statut'];
+                $display = new View();
+                if (isset($_GET['postid'])) {
+                    $idpost = htmlspecialchars($_GET['postid']);
+                    if (self::postExist($idpost)) {
+                        $display->createViewEditPost($idpost, $title, $content, $status);
+                    }else{
+                        $display->createViewEditPost(null , $title, $content, $status);
+                    }
+                }else{
+                    $display->createViewEditPost(null, $title, $content, $status);
+                }
 
-            if (isset($_GET['postid'])) {
+            }else if (isset($_GET['postid'])) {
                 $idpost = htmlspecialchars($_GET['postid']);
 
+
+
+
                 if (self::postExist($idpost)) {
+                    echo "pas d'erreur";
                     $mdlpost = new Post();
                     $post = $mdlpost->getPost($idpost);
                     $title = $post['Title'];
-                    $date = $post['Created_at'];
                     $content = $post['Content'];
                     $status = $post['Status'];
                     $display = new View();
-                    $display->createViewEditPost($idpost, $title, $date, $content, $status);
+                    $display->createViewEditPost($idpost, $title, $content, $status);
 
                 } else {//post doesn't exist
                     $display = new View();

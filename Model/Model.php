@@ -18,11 +18,9 @@ abstract class Model
     protected function executeRequest($sql, $params = null)
     {
         if ($params == null) {
-
             $req = $this->bdd->query($sql);
             return $req;
         } else {
-
             $req = $this->bdd->prepare($sql);
             $req->execute($params);
             return $req;
