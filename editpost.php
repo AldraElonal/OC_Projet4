@@ -31,16 +31,13 @@ if (isset($_POST['FileUpdate'])) {
         if (in_array($filetype, $allowed) AND $error) {
             // Vérifie si le fichier existe avant de le télécharger.
             if (file_exists("img/" . $_FILES["photo"]["name"]) AND $error) {
-//            echo $_FILES["photo"]["name"] . " existe déjà.";
-            } else {
+            unlink("img/" . $_FILES["photo"]["name"]);
+            }
                 move_uploaded_file($_FILES["photo"]["tmp_name"], "img/" . $_FILES["photo"]["name"]);
-//            echo "Votre fichier a été téléchargé avec succès.";
             }
         }
-    }
-
-
 }
+
 if (isset($_POST['Status'])) {
     $status = 1;
 } else {
@@ -52,6 +49,10 @@ if ($title != null AND $content != null AND $error == true) {
 
         if ($mdlpost->idPostExist($postid)) {
             if (isset($_POST['FileUpdate'])) {
+                $currentpost = $mdlpost->getPost($postid);
+                if($currentpost['Img_Name'] != $_FILES["photo"]["name"]) {
+                    unlink("img/" . $currentpost['Img_Name']);
+                }
                 $mdlpost->editPostWithFile($postid, $title, $content, $_FILES["photo"]["name"], $status);
             } else {
                 $mdlpost->editPostWithoutFile($postid, $title, $content, $status);

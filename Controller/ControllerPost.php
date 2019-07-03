@@ -79,7 +79,7 @@ class ControllerPost
     {
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
             $mdlpost = new Post();
-            $posts = $mdlpost->getPosts();
+            $posts = $mdlpost->getPostsDesc();
             $display = new View();
             $display->createViewPostManager($posts);
 

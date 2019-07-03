@@ -14,6 +14,13 @@ class Post extends Model
         return $posts;
     }
 
+    public function getPostsDesc()
+    {
+        $posts = $this->executeRequest("SELECT *, DATE_FORMAT(Created_At,'%d/%m/%Y') AS jour,DATE_FORMAT(Created_At,'%Hh%imin') AS heure  FROM post ORDER BY Created_At DESC ");
+        $posts = $posts->fetchAll();
+        return $posts;
+    }
+
     public function getPostsPerStatus($status)
     {
         $posts = $this->executeRequest("SELECT *, DATE_FORMAT(Created_At,'%d/%m/%Y') AS jour,DATE_FORMAT(Created_At,'%Hh%imin') AS heure  FROM post WHERE `Status`=?",array($status));

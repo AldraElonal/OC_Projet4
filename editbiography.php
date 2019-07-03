@@ -32,19 +32,19 @@ if (isset($_POST['FileUpdate'])) {
         if (in_array($filetype, $allowed) AND $error) {
             // Vérifie si le fichier existe avant de le télécharger.
             if (file_exists("img/" . $_FILES["photo"]["name"]) AND $error) {
-//            echo $_FILES["photo"]["name"] . " existe déjà.";
-            } else {
-                move_uploaded_file($_FILES["photo"]["tmp_name"], "img/" . $_FILES["photo"]["name"]);
-//            echo "Votre fichier a été téléchargé avec succès.";
+                unlink("img/" . $_FILES["photo"]["name"]);
             }
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "img/" . $_FILES["photo"]["name"]);
         }
     }
-
-
 }
 
 if ( $content != null AND $error == true) {
             if(isset($_POST['FileUpdate'])) {
+                $currentpost = $mdlbiography->getBiography();
+                if($currentpost[0]['Img_Name'] != $_FILES["photo"]["name"]) {
+                    unlink("img/" . $currentpost[0]['Img_Name']);
+                }
                 $mdlbiography->editBiographyWithFile($content, $_FILES["photo"]["name"]);
             }else{
                 $mdlbiography->editBiographyWithoutFile($content);

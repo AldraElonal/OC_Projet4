@@ -11,7 +11,7 @@ ob_start(); ?>
     <p class ="msgerror"> <?= $msgerror ?></p>
                 <?php } ?>
                 <div class="form-group">
-                    <input type="text" name="Title" class="form-control"
+                    <input type="text" name="Title" class="form-control" maxlength="255"
                            <?php if ($id !== null) { ?>value="<?php echo $title;
                            } else { ?>placeholder=" Titre de l'article<?php } ?>">
                 </div>
