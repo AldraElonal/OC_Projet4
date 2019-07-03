@@ -7,7 +7,7 @@ use App\Member;
 
 <!doctype html>
 <html lang="fr">
-<head>
+<nav class =>
     <meta charset="UTF-8"/>
     <!-- Ajout Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -15,20 +15,21 @@ use App\Member;
     <!-- ajout fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css"/>
-</head>
+</nav>
 <body>
 <header class="container-fluid ">
-
-    <div class="row">
-        <h1 class="col-sm-8"><a href="index.php">Forteroche : Billet simple pour l'Alaska</a></h1>
-
-        <?php if (!isset($_SESSION['User']['role']) OR $_SESSION['User']['role'] < Member::ADMIN) { ?><a class="btnconnexion btn btn-danger offset-sm-2 col-sm-1 " href="index.php?action=login" role="button">Connexion</a>
-        <?php } else { ?><a href="index.php?action=admin" class="btnconnexion btn btn-danger col-sm-2">Panneau
-            d'Administation</a>  <a href="index.php?action=unlog" class="btndisconnexion btn btn-danger col-sm-1">Déconnexion</a>
+    <nav class="navbar   fixed-top ">
+       <h1> <a class="navbar-brand" href="index.php">Forteroche : Billet simple pour l'Alaska</a></h1>
+     <div>
+        <?php if (!isset($_SESSION['User']['role']) OR $_SESSION['User']['role'] < Member::ADMIN) { ?>
+        <button class="btn btn-primary my-0" ><a href="index.php?action=login">Connexion</a></button>
+        <?php } else { ?><button class="btn btn-primary my-0" ><a href="index.php?action=admin">Panneau d'administration</a></button> <button class="btn btn-primary my-0" ><a href="index.php?action=unlog">Déconnexion</a></button>
         <?php } ?>
-    </div>
+     </div></nav>
 </header>
+<div class=" contenu">
 <?php echo $content ?>
+</div>
 
 <footer class="container-fluid">
     <div class="row">

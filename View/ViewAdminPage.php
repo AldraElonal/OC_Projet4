@@ -3,7 +3,7 @@ ob_start();
 
 ?>
     <div class="row ">
-        <div class="contenu rounded col-md-7 offset-md-2">
+        <div class=" rounded col-md-7 offset-md-2">
             <div class="rounded comments">
                 <h2><?= $title ?></h2>
                 <?php for ($i = 0; $i < count($comments); $i++) {

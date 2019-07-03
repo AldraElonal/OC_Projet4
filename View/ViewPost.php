@@ -3,7 +3,7 @@ ob_start();
 
 ?>
     <div class="row ">
-        <div class="contenu rounded col-md-9 offset-md-2">
+        <div class=" rounded col-md-9 offset-md-2">
             <article class="rounded">
                 <h2><?= $post['Title'] ?></a></h2>
                 <p> Le <?= $post['jour'] ?> à <?= $post['heure'] ?> </p>
@@ -33,7 +33,7 @@ ob_start();
             <form class=" col-md-7 rounded addComment" method="post"
                   action="index.php?action=commenter&postid=<?= $post['Id'] ?>">
                 <div class="form-group">
-                    <input type="text" name="pseudo" class="form-control" placeholder="Votre pseudo">
+                    <input type="text" name="pseudo" class="form-control" placeholder="Votre pseudo" maxlength="255">
                 </div>
                 <div class="form-group">
                     <textarea name="content" class="form-control" placeholder="Votre commentaire" rows="6"></textarea>

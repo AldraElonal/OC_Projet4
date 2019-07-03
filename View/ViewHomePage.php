@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-<div class="contenu">
+<div>
     <div class="row ">
         <div class=" rounded col-md-8 offset-md-1">
             <article class="rounded">

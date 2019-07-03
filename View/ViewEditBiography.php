@@ -1,7 +1,7 @@
 <?php
 ob_start(); ?>
     <div class="row ">
-        <div class="contenu rounded col-md-7 offset-md-2 gestion">
+        <div class=" rounded col-md-7 offset-md-2 gestion">
             <h2> Edition de la Biographie</h2>
             <form class=" col-md-10 rounded EditArticle" method="post"
                   action="editbiography.php" enctype="multipart/form-data">

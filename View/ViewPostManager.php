@@ -3,7 +3,7 @@ ob_start(); ?>
 
 
     <div class="row ">
-        <div class="contenu rounded col-md-7 offset-md-2 gestion">
+        <div class=" rounded col-md-7 offset-md-2 gestion">
             <h2> Gestion des Articles</h2>
             <ul class=" list-group rounded">
                 <div class="row"><a href="index.php?action=AjouterArticle" class="btn btn-success">Ecrire un Nouveau
