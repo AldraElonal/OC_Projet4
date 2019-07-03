@@ -24,7 +24,7 @@ ob_start();
 
         <div class=" rounded col-md-8 offset-md-2">
             <?php
-            for ($i = 0; $i < count($posts); $i++) {
+            for ($i = count($posts)-1; $i >= 0; $i--) {
                 ?>
 
                 <article class="rounded">
@@ -45,10 +45,7 @@ ob_start();
                         } else {
                             echo $posts[$i]['Content'];
                         }
-                                    ?> </div</p></div><?php if($posts[$i]['Img_Name'] != null){ ?><div class="col-md-3 offset-md-1"><img class = "image_homepage img-fluid mx-auto " src="<?= "img/". $posts[$i]['Img_Name']; ?>"/></div> <?php } ?></div> <i class="fas fa-comment"></i> <?= $numbercommentsperposts[$i] ?></article>
-
-
-
+                                    ?> </div</p></div><?php if($posts[$i]['Img_Name'] != null){ ?><div class="col-md-3 offset-md-1"><img class = "image_homepage img-fluid mx-auto " src="<?= "img/". $posts[$i]['Img_Name']; ?>"/></div> <?php } ?></div> <i class="fas fa-comment"></i> <?= $numbercommentsperposts[$i] ?> <div class=" row"><a href="<?= "index.php?action=billet&postid=" . $posts[$i]['Id'] ?>" class ="btn btn-primary">Lire la suite</a></div></article>
             <?php  } ?>
 
         </div>

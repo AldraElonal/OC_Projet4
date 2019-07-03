@@ -13,7 +13,7 @@ ob_start();
                             : </p>
                         <?php if ($comments[$i]['Status'] > 0) { ?>  <a
                                 href="index.php?action=validerCommentaire&commentid=<?= $comments[$i]['Id'] ?>"
-                                class=" btn btn-success offset-md-3 ">Valider</a>
+                                class=" btn btn-success offset-md-3 ">Afficher</a>
                             <a href="index.php?action=supprimerCommentaire&commentid=<?= $comments[$i]['Id'] ?>"
                                class="btnsupprimer btn btn-danger ">Supprimer</a>
                         <?php } ?>
