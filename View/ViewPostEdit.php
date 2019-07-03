@@ -6,6 +6,10 @@ ob_start(); ?>
             <form class=" col-md-10 rounded EditArticle" method="post"
                   action="editpost.php<?php if ($id !== null) { ?>?postId=<?php echo $id;
                   } ?>" enctype="multipart/form-data">
+                <?php if($msgerror != null){
+                    ?>
+    <p class ="msgerror"> <?= $msgerror ?></p>
+                <?php } ?>
                 <div class="form-group">
                     <input type="text" name="Title" class="form-control"
                            <?php if ($id !== null) { ?>value="<?php echo $title;
@@ -39,7 +43,7 @@ ob_start(); ?>
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Valider</button>
                 <a href="index.php?action=SupprimerArticle&postid=<?=
                 $id ?>" class="btn btn-danger">Supprimer</a>
             </form>

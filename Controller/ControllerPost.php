@@ -99,16 +99,17 @@ class ControllerPost
                 $title = $_SESSION['PostEdit']['title'];
                 $content = $_SESSION['PostEdit']['content'];
                 $status = $_SESSION['PostEdit']['statut'];
+                $msgerror = $_SESSION['PostEdit']['errorMsg'];
                 $display = new View();
                 if (isset($_GET['postid'])) {
                     $idpost = htmlspecialchars($_GET['postid']);
                     if (self::postExist($idpost)) {
-                        $display->createViewEditPost($idpost, $title, $content, $status);
+                        $display->createViewEditPost($idpost, $title, $content, $status,$msgerror);
                     }else{
-                        $display->createViewEditPost(null , $title, $content, $status);
+                        $display->createViewEditPost(null , $title, $content, $status,$msgerror);
                     }
                 }else{
-                    $display->createViewEditPost(null, $title, $content, $status);
+                    $display->createViewEditPost(null, $title, $content, $status,$msgerror);
                 }
 
             }else if (isset($_GET['postid'])) {

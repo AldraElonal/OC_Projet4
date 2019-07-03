@@ -17,13 +17,13 @@ if (isset($_POST['FileUpdate'])) {
         // Vérifie l'extension du fichier
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
         if (!array_key_exists($ext, $allowed)) {
-            //die("Erreur : Veuillez sélectionner un format de fichier valide.");
+            $msgerror = "Erreur : Veuillez sélectionner un format de fichier valide.";
             $error = false;
         }
         // Vérifie la taille du fichier - 5Mo maximum
         $maxsize = 5 * 1024 * 1024;
         if ($filesize > $maxsize AND $error) {
-            //die("Error: La taille du fichier est supérieure à la limite autorisée.");
+            $msgerror = "Erreur : La taille du fichier est supérieure à la limite autorisée.";
             $error = false;
         }
 
@@ -75,11 +75,15 @@ if ($title != null AND $content != null AND $error == true) {
     header("location:index.php?action=gestionArticles");
     exit;
 } else {
-
+    if($error == true){
+        $msgerror = "Erreur : le titre et le contenu de l'article ne doivent pas être vides";
+        $error = false;
+    }
     $_SESSION['PostEdit']['title'] = $title;
     $_SESSION['PostEdit']['content'] = $content;
     $_SESSION['PostEdit']['statut'] = $status;
     $_SESSION['PostEdit']['error'] = $error;
+    $_SESSION['PostEdit']['errorMsg'] = $msgerror;
     if (isset($_GET['postId'])) {
         $postid = htmlspecialchars($_GET['postId']);
         $_SESSION['PostEdit']['id'] = $postid;

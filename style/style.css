@@ -211,3 +211,8 @@ max-height: 400px;
 {
     padding-left: 0;
 }
+
+.msgerror {
+    color: red;
+    font-weight: bold;
+}

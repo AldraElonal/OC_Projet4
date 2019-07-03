@@ -5,6 +5,10 @@ ob_start(); ?>
             <h2> Edition de la Biographie</h2>
             <form class=" col-md-10 rounded EditArticle" method="post"
                   action="editbiography.php" enctype="multipart/form-data">
+                <?php if($msgerror != null){
+                    ?>
+                    <p class ="msgerror"> <?= $msgerror ?></p>
+                <?php } ?>
                 <div class="form-group">
                     <textarea name="Content" class="form-control" id="TinyMCE"
                               rows="6">
@@ -25,7 +29,7 @@ ob_start(); ?>
                         une taille maximale de 5 Mo.</p>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Valider</button>
             </form>
         </div>
 
