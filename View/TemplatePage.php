@@ -52,7 +52,7 @@ use App\Member;
 
 <footer class="container-fluid">
     <div class="row">
-        <a href="facebook.com"><i class="fab fa-facebook-f col-md-1"></i></a> <a href="twitter.com"><i
+        <a href="http://www.facebook.com"><i class="fab fa-facebook-f col-md-1"></i></a> <a href="http://www.twitter.com"><i
                     class="col-md-1 fab fa-twitter"></i></a>
     </div>
 </footer>
