@@ -1,8 +1,11 @@
 <?php
 ob_start(); ?>
     <div class="row ">
-        <div class=" rounded col-md-7 offset-md-2 gestion">
+        <div class="col-lg-7 offset-lg-2">
+            <div class="rounded card">
+                <div class="card-header">
             <h2> Edition de la Biographie</h2>
+                </div>
             <form class=" col-md-10 rounded EditArticle" method="post"
                   action="editbiography.php" enctype="multipart/form-data">
                 <?php if($msgerror != null){
@@ -32,30 +35,35 @@ ob_start(); ?>
                 <button type="submit" class="btn btn-primary">Valider</button>
             </form>
         </div>
+        </div>
 
-        <nav class="col-md-2  rounded">
-            <h2>Navigation</h2>
-            <ul class="nav ">
-                <li class="nav-item col-md-12 ">
-                    Gestion des commentaires
-                </li>
-                <li class="nav-item col-md-12 ">
-                    <a class="nav-link offset-md-1" href="index.php?action=admin"><i class="fas fa-caret-right"></i> Commentaires à Modérer</a>
-                </li>
-                <li class="nav-item col-md-12 ">
-                    <a class="nav-link offset-md-1" href="index.php?action=commentairesSupprimes"><i class="fas fa-caret-right"></i> Commentaires Supprimés</a>
-                </li>
+        <nav class=" card col-lg-3  rounded">
+            <div class="card-header">
+                <h2>Navigation</h2>
+            </div>
+            <div class="card-body">
+                <ul class="nav ">
+                    <li class="nav-item col-lg-12 ">
+                        Gestion des commentaires
+                    </li>
+                    <li class="nav-item col-lg-12 ">
+                        <a class="nav-link offset-md-1" href="index.php?action=admin"><i class="fas fa-caret-right"></i> Commentaires à Modérer</a>
+                    </li>
+                    <li class="nav-item col-lg-12 ">
+                        <a class="nav-link offset-md-1" href="index.php?action=commentairesSupprimes"><i class="fas fa-caret-right"></i> Commentaires Supprimés</a>
+                    </li>
 
-                <li class="nav-item col-md-12 ">
-                    <a class="nav-link gstctn" href="index.php?action=gestionArticles">Gestion du Contenu</a>
-                </li>
-                <li class="nav-item col-md-12 ">
-                    <a class="nav-link offset-md-1" href="index.php?action=AjouterArticle"><i class="fas fa-caret-right"></i> Ajouter un article</a>
-                </li>
-                <li class="nav-item col-md-12 ">
-                    <a class="nav-link offset-md-1" href="index.php?action=EditerBiographie"><i class="fas fa-caret-right"></i> Editer la biographie</a>
-                </li>
-            </ul>
+                    <li class="nav-item col-lg-12 ">
+                        <a class="nav-link gstctn" href="index.php?action=gestionArticles">Gestion du Contenu</a>
+                    </li>
+                    <li class="nav-item col-lg-12 ">
+                        <a class="nav-link offset-md-1" href="index.php?action=AjouterArticle"><i class="fas fa-caret-right"></i> Ajouter un article</a>
+                    </li>
+                    <li class="nav-item col-lg-12 ">
+                        <a class="nav-link offset-md-1" href="index.php?action=EditerBiographie"><i class="fas fa-caret-right"></i> Editer la biographie</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
     </div>
