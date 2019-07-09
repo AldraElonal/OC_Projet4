@@ -121,20 +121,6 @@ article {
 }
 
 
-.comments {
-
-    background-color: lightblue;
-    opacity: 0.8;
-}
-
-.addComment {
-    background-color: lightblue;
-    opacity: 0.8;
-    margin: 10px 0;
-    padding: 5px;
-
-
-}
 
 .gestion
 {
@@ -234,9 +220,15 @@ button a{
 
 .card-header{
     color: #007BFF;
+    background-color: #cbf5ff;
 }
 
 .card-date{
     color : #7f7f7f;
     font-weight: bold;
+}
+
+input, textarea{
+ border:   3px solid #adb3b9 !important;
+
 }
