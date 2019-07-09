@@ -56,7 +56,7 @@ ob_start(); ?>
                     Gestion des commentaires
                 </li>
                 <li class="nav-item col-md-12 ">
-                    <a class="nav-link offset-md-1" href="index.php?action=commentairesSupprimes"><i class="fas fa-caret-right"></i> Commentaires à Modérer</a>
+                    <a class="nav-link offset-md-1" href="index.php?action=admin"><i class="fas fa-caret-right"></i> Commentaires à Modérer</a>
                 </li>
                 <li class="nav-item col-md-12 ">
                     <a class="nav-link offset-md-1" href="index.php?action=commentairesSupprimes"><i class="fas fa-caret-right"></i> Commentaires Supprimés</a>

@@ -39,7 +39,7 @@ ob_start();
                     <textarea name="content" class="form-control" placeholder="Votre commentaire" rows="6"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Valider</button>
             </form>
 
             <a href="index.php" class="btn btn-primary"> Retour à l'Acceuil</a>

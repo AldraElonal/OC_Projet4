@@ -51,6 +51,10 @@ body,.btn {
     margin-bottom : 1.5em;
 }
 
+h1,h2{
+    font-size: 1.8rem !important;
+}
+
 h1, h2, h3 {
     font-family: "Enigmatic Regular", sans-serif;
 
@@ -211,4 +215,19 @@ max-height: 400px;
 
 button a{
     color : white!important;
+}
+
+
+.nav-item{
+    padding : 5px;
+}
+
+
+.navbar-collapse{
+    flex-grow: 0;
+}
+
+.row{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
