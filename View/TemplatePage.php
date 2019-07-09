@@ -54,7 +54,7 @@ use App\Member;
     <div class="row">
         <a href="facebook.com"><i class="fab fa-facebook-f col-md-1"></i></a> <a href="twitter.com"><i
                     class="col-md-1 fab fa-twitter"></i></a>
-        <p class="col-md-4 offset-md-7"> Blog réalisé avec php,mysql et la bibliothèque css Bootstrap</p></div>
+    </div>
 </footer>
 <?php if (isset($script)) {
     echo $script;

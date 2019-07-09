@@ -178,13 +178,9 @@ footer {
     font-size: 1.2em;
 }
 
-a {
-    color: red;
-}
 
 .image_homepage
 {
-max-width :200px;
 max-height: 400px;
 
 }
@@ -196,11 +192,6 @@ max-height: 400px;
 
 }
 
-.artfrt
-{
-    margin-left : 0 ;
-   
-}
 
 .gstctn
 {
@@ -230,4 +221,22 @@ button a{
 .row{
     margin-left: 0px !important;
     margin-right: 0px !important;
+}
+
+
+
+.card{
+    margin-bottom: 5px;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card-header{
+    color: #007BFF;
+}
+
+.card-date{
+    color : #7f7f7f;
+    font-weight: bold;
 }
