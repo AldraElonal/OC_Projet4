@@ -30,15 +30,15 @@ use App\Member;
             <ul class="navbar-nav">
                 <?php if (!isset($_SESSION['User']['role']) OR $_SESSION['User']['role'] < Member::ADMIN) { ?>
                     <li class="nav-item active">
-                        <button class="btn btn-primary my-0"><a href="index.php?action=login">Connexion</a></button>
+                        <a href="index.php?action=login" class ="btn btn-primary my-0">Connexion</a>
                     </li>
                 <?php } else { ?>
                     <li class="nav-item active">
-                        <button class="btn btn-primary my-0"><a href="index.php?action=admin">Panneau
-                                d'administration</a></button>
+                        <a href="index.php?action=admin" class="btn btn-primary my-0">Panneau
+                                d'administration</a>
                     </li>
                     <li class="nav-item active">
-                        <button class="btn btn-primary my-0"><a href="index.php?action=unlog">Déconnexion</a></button>
+                        <a href="index.php?action=unlog" class="btn btn-primary my-0">Déconnexion</a>
                     </li>
                 <?php } ?>
             </ul>
