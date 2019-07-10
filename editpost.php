@@ -31,11 +31,11 @@ if (isset($_POST['FileUpdate'])) {
         if (in_array($filetype, $allowed) AND $error) {
             // Vérifie si le fichier existe avant de le télécharger.
             if (file_exists("img/" . $_FILES["photo"]["name"]) AND $error) {
-            unlink("img/" . $_FILES["photo"]["name"]);
+                unlink("img/" . $_FILES["photo"]["name"]);
             }
-                move_uploaded_file($_FILES["photo"]["tmp_name"], "img/" . $_FILES["photo"]["name"]);
-            }
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "img/" . $_FILES["photo"]["name"]);
         }
+    }
 }
 
 if (isset($_POST['Status'])) {
@@ -50,7 +50,7 @@ if ($title != null AND $content != null AND $error == true) {
         if ($mdlpost->idPostExist($postid)) {
             if (isset($_POST['FileUpdate'])) {
                 $currentpost = $mdlpost->getPost($postid);
-                if($currentpost['Img_Name'] != $_FILES["photo"]["name"]) {
+                if ($currentpost['Img_Name'] != $_FILES["photo"]["name"]) {
                     unlink("img/" . $currentpost['Img_Name']);
                 }
                 $mdlpost->editPostWithFile($postid, $title, $content, $_FILES["photo"]["name"], $status);
@@ -76,7 +76,7 @@ if ($title != null AND $content != null AND $error == true) {
     header("location:index.php?action=gestionArticles");
     exit;
 } else {
-    if($error == true){
+    if ($error == true) {
         $msgerror = "Erreur : le titre et le contenu de l'article ne doivent pas être vides";
         $error = false;
     }
@@ -91,8 +91,7 @@ if ($title != null AND $content != null AND $error == true) {
 
         header("location:index.php?action=EditerArticle&postid=" . $postid);
         exit;
-    }
-    else{
+    } else {
         header("location:index.php?action=AjouterArticle");
         exit;
     }

@@ -37,8 +37,6 @@ ob_start();
                     <div class="container artfrt">
                         <div class="row">
                             <div class="col-md-8"><p><?php
-
-
                                     if (strlen($posts[$i]['Content']) > 320) {
 
                                         $extract = substr($posts[$i]['Content'], 0, 300);

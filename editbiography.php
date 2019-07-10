@@ -5,7 +5,6 @@ include_once "Autoloader.php";
 $mdlbiography = new \App\Biography();
 
 
-
 $content = $_POST['Content'];
 $error = true;
 if (isset($_POST['FileUpdate'])) {
@@ -39,21 +38,21 @@ if (isset($_POST['FileUpdate'])) {
     }
 }
 
-if ( $content != null AND $error == true) {
-            if(isset($_POST['FileUpdate'])) {
-                $currentpost = $mdlbiography->getBiography();
-                if($currentpost[0]['Img_Name'] != $_FILES["photo"]["name"]) {
-                    unlink("img/" . $currentpost[0]['Img_Name']);
-                }
-                $mdlbiography->editBiographyWithFile($content, $_FILES["photo"]["name"]);
-            }else{
-                $mdlbiography->editBiographyWithoutFile($content);
-            }
+if ($content != null AND $error == true) {
+    if (isset($_POST['FileUpdate'])) {
+        $currentpost = $mdlbiography->getBiography();
+        if ($currentpost[0]['Img_Name'] != $_FILES["photo"]["name"]) {
+            unlink("img/" . $currentpost[0]['Img_Name']);
+        }
+        $mdlbiography->editBiographyWithFile($content, $_FILES["photo"]["name"]);
+    } else {
+        $mdlbiography->editBiographyWithoutFile($content);
+    }
     header("location:index.php?action=admin");
     exit;
-}else {
+} else {
 
-    if($error == true){
+    if ($error == true) {
         $msgerror = "Erreur : le contenu de la biographie ne doit pas être vide";
         $error = false;
     }
@@ -61,8 +60,8 @@ if ( $content != null AND $error == true) {
     $_SESSION['PostEdit']['error'] = $error;
     $_SESSION['PostEdit']['errorMsg'] = $msgerror;
 
-        header("location:index.php?action=EditerBiographie");
-        exit;
+    header("location:index.php?action=EditerBiographie");
+    exit;
 
 }
 

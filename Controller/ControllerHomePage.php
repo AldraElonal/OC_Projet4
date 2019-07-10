@@ -11,12 +11,12 @@ class ControllerHomePage
     {
         $mdlpost = new Post();
         $mdlbiography = new Biography();
-$mdlcomments = new Comments();
+        $mdlcomments = new Comments();
         $posts = $mdlpost->getPostsPerStatus(1);
-       $numbercommentsperposts = $mdlcomments->getNumberCommentsPerPosts($posts);
+        $numbercommentsperposts = $mdlcomments->getNumberCommentsPerPosts($posts);
         $bio = $mdlbiography->getBiography();
         $display = new View();
-        $display->createViewHomePage($posts,$bio,$numbercommentsperposts);
+        $display->createViewHomePage($posts, $bio, $numbercommentsperposts);
     }
 
 }

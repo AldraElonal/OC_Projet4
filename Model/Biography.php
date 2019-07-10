@@ -14,10 +14,9 @@ class Biography extends Model
     }
 
 
-
-    public function editBiographyWithFile($content,$filename)
+    public function editBiographyWithFile($content, $filename)
     {
-        $this->executeRequest("UPDATE `biography` SET `Content`=?,`Img_Name`=?  WHERE Id=0", array($content,$filename));
+        $this->executeRequest("UPDATE `biography` SET `Content`=?,`Img_Name`=?  WHERE Id=0", array($content, $filename));
 
     }
 

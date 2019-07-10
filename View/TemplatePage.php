@@ -28,7 +28,6 @@ use App\Member;
         </button>
         <div class="navbar-collapse collapse" id="navbarCollapse">
             <ul class="navbar-nav">
-                <!--            <a href="index.php?action=login" class="btn btn-primary ml-auto mt-2 mt-md-0">Connexion</a>-->
                 <?php if (!isset($_SESSION['User']['role']) OR $_SESSION['User']['role'] < Member::ADMIN) { ?>
                     <li class="nav-item active">
                         <button class="btn btn-primary my-0"><a href="index.php?action=login">Connexion</a></button>
@@ -52,7 +51,8 @@ use App\Member;
 
 <footer class="container-fluid">
     <div class="row">
-        <a href="http://www.facebook.com"><i class="fab fa-facebook-f col-md-1"></i></a> <a href="http://www.twitter.com"><i
+        <a href="http://www.facebook.com"><i class="fab fa-facebook-f col-md-1"></i></a> <a
+                href="http://www.twitter.com"><i
                     class="col-md-1 fab fa-twitter"></i></a>
     </div>
 </footer>

@@ -2,8 +2,8 @@
 ob_start();
 
 ?>
-        <div class="col-md-9 offset-md-2">
-            <div class=" card rounded">
+    <div class="col-md-9 offset-md-2">
+        <div class=" card rounded">
             <div class="card-header">
                 <h2><?= $post['Title'] ?></a></h2>
             </div>
@@ -21,11 +21,11 @@ ob_start();
         </div>
 
 
-            <div class="card rounded">
-                <div class="card-header">
+        <div class="card rounded">
+            <div class="card-header">
                 <h2>Commentaires</h2>
-                </div>
-                <div class="card-body">
+            </div>
+            <div class="card-body">
                 <?php if (count($comments) == 0) {
                     ?> <p> Pas de Commentaires</p>
                 <?php } else {
@@ -48,13 +48,13 @@ ob_start();
                             } ?> </p>
                     <?php }
                 } ?>
-                </div>
             </div>
+        </div>
 
-<div class="card">
-    <div class="card-header">
-        <h2>Ajouter un commentaire</h2>
-    </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>Ajouter un commentaire</h2>
+            </div>
             <form class=" rounded addComment" method="post"
                   action="index.php?action=commenter&postid=<?= $post['Id'] ?>">
                 <div class="form-group col-md-7">
@@ -66,12 +66,12 @@ ob_start();
 
                 <button type="submit" class="btn btn-primary">Valider</button>
             </form>
-</div>
-
-            <a href="index.php" class="btn btn-primary"> Retour
-                à l'Acceuil</a>
-
         </div>
+
+        <a href="index.php" class="btn btn-primary"> Retour
+            à l'Acceuil</a>
+
+    </div>
 <?php
 
 $content = ob_get_clean();

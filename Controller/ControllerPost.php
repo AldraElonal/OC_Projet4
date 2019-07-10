@@ -94,7 +94,7 @@ class ControllerPost
 
         if (isset($_SESSION['User']['role']) AND $_SESSION['User']['role'] <= Member::ADMIN) {
 
-            if($_SESSION['PostEdit']['error'] == false ){
+            if ($_SESSION['PostEdit']['error'] == false) {
                 $_SESSION['PostEdit']['error'] = true;
                 $title = $_SESSION['PostEdit']['title'];
                 $content = $_SESSION['PostEdit']['content'];
@@ -104,18 +104,16 @@ class ControllerPost
                 if (isset($_GET['postid'])) {
                     $idpost = htmlspecialchars($_GET['postid']);
                     if (self::postExist($idpost)) {
-                        $display->createViewEditPost($idpost, $title, $content, $status,$msgerror);
-                    }else{
-                        $display->createViewEditPost(null , $title, $content, $status,$msgerror);
+                        $display->createViewEditPost($idpost, $title, $content, $status, $msgerror);
+                    } else {
+                        $display->createViewEditPost(null, $title, $content, $status, $msgerror);
                     }
-                }else{
-                    $display->createViewEditPost(null, $title, $content, $status,$msgerror);
+                } else {
+                    $display->createViewEditPost(null, $title, $content, $status, $msgerror);
                 }
 
-            }else if (isset($_GET['postid'])) {
+            } else if (isset($_GET['postid'])) {
                 $idpost = htmlspecialchars($_GET['postid']);
-
-
 
 
                 if (self::postExist($idpost)) {

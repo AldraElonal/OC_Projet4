@@ -23,10 +23,11 @@ class Post extends Model
 
     public function getPostsPerStatus($status)
     {
-        $posts = $this->executeRequest("SELECT *, DATE_FORMAT(Created_At,'%d/%m/%Y') AS jour,DATE_FORMAT(Created_At,'%Hh%imin') AS heure  FROM post WHERE `Status`=?",array($status));
+        $posts = $this->executeRequest("SELECT *, DATE_FORMAT(Created_At,'%d/%m/%Y') AS jour,DATE_FORMAT(Created_At,'%Hh%imin') AS heure  FROM post WHERE `Status`=?", array($status));
         return $posts->fetchAll();
 
     }
+
     public function getPost($idPost)
     {
         $post = $this->executeRequest("Select *,DATE_FORMAT(Created_At,'%d/%m/%Y') AS jour,DATE_FORMAT(Created_At,'%Hh%imin') AS heure FROM post WHERE Id = ?", array($idPost));
@@ -53,25 +54,25 @@ class Post extends Model
         }
     }
 
-    public function addPostWithFile($title, $content,$filename,$status)
+    public function addPostWithFile($title, $content, $filename, $status)
     {
-        $this->executeRequest("INSERT INTO `post`(`Title`, `Created_at`, `Content`,`Img_Name`, `Status`) VALUES (?,NOW(),?,?,?)", array($title, $content,$filename, $status));
+        $this->executeRequest("INSERT INTO `post`(`Title`, `Created_at`, `Content`,`Img_Name`, `Status`) VALUES (?,NOW(),?,?,?)", array($title, $content, $filename, $status));
     }
 
-    public function addPostWithoutFile($title, $content,$status)
+    public function addPostWithoutFile($title, $content, $status)
     {
         $this->executeRequest("INSERT INTO `post`(`Title`, `Created_at`, `Content`,`Status`) VALUES (?,NOW(),?,?)", array($title, $content, $status));
     }
 
-    public function editPostWithFile($id, $title, $content,$filename,$status)
+    public function editPostWithFile($id, $title, $content, $filename, $status)
     {
-        $this->executeRequest("UPDATE `post` SET `Title`=?,`Content`=?,`Img_Name`=?,`Status`=?  WHERE Id=?", array($title, $content,$filename,$status, $id));
+        $this->executeRequest("UPDATE `post` SET `Title`=?,`Content`=?,`Img_Name`=?,`Status`=?  WHERE Id=?", array($title, $content, $filename, $status, $id));
 
     }
 
-    public function editPostWithoutFile($id, $title, $content,$status)
+    public function editPostWithoutFile($id, $title, $content, $status)
     {
-        $this->executeRequest("UPDATE `post` SET `Title`=?,`Content`=?,`Status`=?  WHERE Id=?", array($title, $content,$status, $id));
+        $this->executeRequest("UPDATE `post` SET `Title`=?,`Content`=?,`Status`=?  WHERE Id=?", array($title, $content, $status, $id));
 
     }
 
