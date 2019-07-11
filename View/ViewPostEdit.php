@@ -63,7 +63,7 @@ ob_start(); ?>
             <div class="card-body">
                 <ul class="nav ">
                     <li class="nav-item col-lg-12 ">
-                        Gestion des commentaires
+                        <span class="nav-link"> Gestion des commentaires</span>
                     </li>
                     <li class="nav-item col-lg-12 ">
                         <a class="nav-link offset-md-1" href="index.php?action=admin"><i class="fas fa-caret-right"></i>

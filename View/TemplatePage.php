@@ -9,10 +9,10 @@ use App\Member;
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <meta name="description" content="Livre en ligne Billet simple pour l'Alaska de Jean Forteroche">
+<link rel="icon" href="../favicon.ico"/>
 <title> Billet simple pour l'Alaska </title>
 <!-- Ajout Bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
 <!-- ajout fontawesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -21,7 +21,7 @@ use App\Member;
 <body>
 <header class="container-fluid ">
     <nav class="navbar navbar-expand-md justify-content-between navbar-light fixed-top bg-light">
-        <h1><a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a></h1>
+        <h1><a class="navbar-brand" href="index.php"><img src="../style/img/ImgBrand.png" height="30" class="d-inline-block align-top" alt="Logo Forteroche"> Billet simple pour l'Alaska</a></h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -13,7 +13,10 @@ ob_start();
                     <p class="card-text"> <?php echo $bio[0]['Content'] ?></p>
                 </div>
                 <div class="col-md-4 ">
-                    <img class="img-fluid" src="<?= "img/" . $bio[0]['Img_Name']; ?>">
+                    <img class="img-fluid"  src="<?= "img/" . $bio[0]['Img_Name']; ?>"
+                                            alt="<?php
+                                            $filename = $bio[0]['Img_Name'];
+                                            echo explode(".",$filename)[0]; ?>"/>
                 </div>
             </div>
 
@@ -48,7 +51,10 @@ ob_start();
                                     ?></p></div>
                             <?php if ($posts[$i]['Img_Name'] != null) { ?>
                                 <div class="col-md-4"><img class="img-fluid"
-                                                           src="<?= "img/" . $posts[$i]['Img_Name']; ?>"/>
+                                                           src="<?= "img/" . $posts[$i]['Img_Name']; ?>"
+                                                            alt="<?php
+                                                             $filename = $posts[$i]['Img_Name'];
+                                                             echo explode(".",$filename)[0]; ?>"/>
                                 </div> <?php } ?>
                         </div>
                         <i class="fas fa-comment"></i> <?= $numbercommentsperposts[$i] ?>
