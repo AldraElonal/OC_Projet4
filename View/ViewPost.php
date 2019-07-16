@@ -6,7 +6,7 @@ ob_start();
         <div class="col-md-8 offset-md-2">
             <div class=" card rounded">
                 <div class="card-header">
-                    <h2><?= $post['Title'] ?></a></h2>
+                    <h2><?= $post['Title'] ?></h2>
                 </div>
                 <div class="card-body">
                     <p class="card-date"> Le <?= $post['jour'] ?> à <?= $post['heure'] ?> </p>

@@ -37,7 +37,7 @@ ob_start();
                 </div>
                 <div class="card-body">
                     <p class="card-date"> Le <?= $posts[$i]['jour'] ?> à <?= $posts[$i]['heure'] ?> </p>
-                    <div class="container artfrt">
+                    <div class="container">
                         <div class="row">
                             <div class="col-md-8"><p><?php
                                     if (strlen($posts[$i]['Content']) > 320) {
