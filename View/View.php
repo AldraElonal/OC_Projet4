@@ -14,7 +14,7 @@ class View
 
     }
 
-    public function createViewPost($post, $comments)
+    public function createViewPost($post, $comments, $erreur=null)
     {
         require "ViewPost.php";
         require "TemplatePage.php";

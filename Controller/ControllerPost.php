@@ -7,7 +7,7 @@ class ControllerPost
 {
 
 
-    static function post()
+    static function post($erreur = null)
     {
         if (isset($_GET['postid'])) {
             $idPost = htmlspecialchars($_GET['postid']);
@@ -17,7 +17,7 @@ class ControllerPost
                 $mdlcomment = new Comments();
                 $comments = $mdlcomment->getCommentsPerPost($idPost);
                 $display = new View();
-                $display->createViewPost($post, $comments);
+                $display->createViewPost($post, $comments,$erreur);
 
             } else { // id invalide
 
@@ -64,7 +64,15 @@ class ControllerPost
                 $mdlComment->addComment($idPost, $pseudo, $content);
                 self::post();
             } else { // problemes dans le formulaire on essaye d'afficher le post
-                self::post();
+                $erreur = null;
+                if($pseudo == null){
+                    $erreur = $erreur . "Erreur : le champ pseudo ne peut être vide. ";
+                }
+                if($content == null){
+                    $erreur = $erreur . "Erreur : le champ Commentaire ne peut être vide.";
+                }
+
+                self::post($erreur);
             }
 
         } elseif (isset($_GET['postid'])) { // pas de pseudo ou de contenu, on affiche juste le post

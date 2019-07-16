@@ -3,6 +3,11 @@ ob_start();
 
 ?>
     <div class="row">
+    <div class="col-md-8 offset-md-2">
+        <p class ="msgerrorComment rounded"> <?= $erreur?> </p>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class=" card rounded">
                 <div class="card-header">
