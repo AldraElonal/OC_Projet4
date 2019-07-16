@@ -69,6 +69,9 @@ class ControllerPost
                     $erreur = $erreur . "Erreur : le champ pseudo ne peut être vide. ";
                 }
                 if($content == null){
+                    if($erreur != null){
+                        $erreur = $erreur .'<br>';
+                    }
                     $erreur = $erreur . "Erreur : le champ Commentaire ne peut être vide.";
                 }
 
