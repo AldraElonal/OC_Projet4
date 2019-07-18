@@ -128,7 +128,6 @@ class ControllerPost
 
 
                 if (self::postExist($idpost)) {
-                    echo "pas d'erreur";
                     $mdlpost = new Post();
                     $post = $mdlpost->getPost($idpost);
                     $title = $post['Title'];

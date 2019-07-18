@@ -4,7 +4,7 @@ ob_start();
 ?>
     <div class="row">
     <div class="col-md-8 offset-md-2">
-        <p class ="msgerrorComment rounded"> <?= $erreur?> </p>
+        <?php if($erreur != null){?><p class ="msgerrorComment rounded"> <?= $erreur?> </p><?php } ?>
         </div>
     </div>
     <div class="row">
